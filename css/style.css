@@ -1,6 +1,11 @@
 body {
   background-image: url(../images/Blackjack_Table.jpg);
-  background-size: 1920px 1080px;
+  background-size: cover;
+}
+
+.page {
+  margin: 0 auto;
+  width: 880px;
 }
 
 header {

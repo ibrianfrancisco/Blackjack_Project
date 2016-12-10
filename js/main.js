@@ -28,16 +28,16 @@
 
 /* ---------- Functions ---------- */
 
-function showHowToPlay() {
-  $('.renderGame').fadeOut(1000);
-}
+// function showHowToPlay() {
+//   $('.renderGame').fadeOut(1000);
+// }
 
 
 
 
 /* ---------- Initial page ---------- */
 
-$('.renderGame').on('click', showHowToPlay)
+// $('.renderGame').on('click', showHowToPlay)
 
 
 
@@ -60,7 +60,7 @@ $('.renderGame').on('click', showHowToPlay)
 
 var suits = ['Spades', 'Hearts', 'Clubs', 'Diamonds']
 
-var vals = ['Ace', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'Jack', 'Queen', 'King']
+var vals = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 
 var Card = function(suit, val) {
   this.suit = suit
