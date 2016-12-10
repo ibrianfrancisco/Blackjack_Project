@@ -1,11 +1,27 @@
 body {
   background-image: url(../images/Blackjack_Table.jpg);
   background-size: cover;
+  user-select: none;
 }
 
-.page {
+.page, .gamePage {
   margin: 0 auto;
-  width: 880px;
+  width: 900px;
+}
+
+.gamePage {
+  display: none;
+  width: 900px;
+}
+
+h1 {
+  text-align: center;
+}
+
+p {
+  text-align: center;
+  font-size: 24px;
+  color: #FFEBCD;
 }
 
 header {
@@ -14,6 +30,7 @@ header {
   margin: 60px;
   padding: 0;
   text-align: center;
+  cursor: default;
 }
 
 input.inputBet {

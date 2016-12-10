@@ -12,10 +12,19 @@
 
 
 /* ---------- Event Listeners ---------- */
+// fadeout Initial page and fadein my Game page.
+$('#beginGame').click(function() {
+  $('.mainPage').fadeOut(800, function() {
+    $('#gamePage').fadeIn(800);
+  });
+})
 
-
-
-
+// fadeout Initial page and fadein How To Play
+$('#howToPlay').click(function() {
+  $('.mainPage').fadeOut(800, function() {
+    $('#howToPlayy').fadeIn(800);
+  });
+})
 
 
 
@@ -28,16 +37,16 @@
 
 /* ---------- Functions ---------- */
 
-// function showHowToPlay() {
-//   $('.renderGame').fadeOut(1000);
-// }
+
+
+
 
 
 
 
 /* ---------- Initial page ---------- */
 
-// $('.renderGame').on('click', showHowToPlay)
+
 
 
 
@@ -86,25 +95,25 @@ for(var i = 0; i < vals.length; i++){
 
 
 /*------------ Form Input for betting -----------*/
-// function FilterInput(event) {
-//     var keyCode = ('which' in event) ? event.which : event.keyCode;
+function FilterInput(event) {
+    var keyCode = ('which' in event) ? event.which : event.keyCode;
 
-//     isNotWanted = (keyCode == 69 || keyCode == 101);
-//     return !isNotWanted;
-// }
-// function handlePaste (e) {
-//     var clipboardData, pastedData;
+    isNotWanted = (keyCode == 69 || keyCode == 101);
+    return !isNotWanted;
+}
+function handlePaste (e) {
+    var clipboardData, pastedData;
 
-//     // Get pasted data via clipboard API
-//     clipboardData = e.clipboardData || window.clipboardData;
-//     pastedData = clipboardData.getData('Text').toUpperCase();
+    // Get pasted data via clipboard API
+    clipboardData = e.clipboardData || window.clipboardData;
+    pastedData = clipboardData.getData('Text').toUpperCase();
 
-//     if(pastedData.indexOf('E')>-1) {
-//         //alert('found an E');
-//         e.stopPropagation();
-//         e.preventDefault();
-//     }
-// }
+    if(pastedData.indexOf('E')>-1) {
+        //alert('found an E');
+        e.stopPropagation();
+        e.preventDefault();
+    }
+}
 
 
 // Test this for multiple aces that come up
