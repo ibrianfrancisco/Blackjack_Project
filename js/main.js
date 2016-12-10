@@ -27,6 +27,34 @@
 
 
 /* ---------- Functions ---------- */
+
+
+
+
+
+/* ---------- Initial page ---------- */
+$howToPlay = $('button')
+
+
+$howToPlay.on('click', showHowToPlay)
+
+function showHowToPlay() {
+  $howToPlay.fadeOut(2000)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*------------ Form Input for betting -----------*/
 function FilterInput(event) {
     var keyCode = ('which' in event) ? event.which : event.keyCode;
 
