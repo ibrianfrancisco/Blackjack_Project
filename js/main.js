@@ -1,6 +1,9 @@
 /* ---------- Variables ---------- */
 
-
+var playerHand;
+var dealerHand;
+var playerFunds;
+var amountBet;
 
 
 
@@ -20,7 +23,7 @@ $('#letsPlayButton').click(function() {
 })
 
 // fadeout Initial page and fadein How To Play
-$('#playButton').click(function() {
+$('#howToButton').click(function() {
   $('.mainPage').fadeOut(800, function() {
     $('#howToPlay').fadeIn(800);
   });
@@ -33,15 +36,18 @@ $('#letsPlay').click(function() {
   });
 })
 
-
-
-
-
-
-
-
+// initial draw 2 cards for playerHand. ***Need to push into playerhand empty []***
+  // Try to use jQuery .each instead of for loop. But this is good for now
+var drawACard = $('#PickACard').click(function() {
+  for(var i=0;i<2;i++) {
+    var x = Math.floor(Math.random() * 52);
+    console.log(deck[x]);
+  }
+  return deck[x]
+});
 
 /* ---------- Functions ---------- */
+
 
 
 
@@ -66,7 +72,12 @@ $('#letsPlay').click(function() {
 
 
 
-
+// var drawACard = $('#pickACard').click(function() {
+//   var x = Math.floor(Math.random() * 52)
+//   console.log(deck[x]);
+//   return deck[x]
+// });
+  // if same number comes up, draw a new number
 
 
 
