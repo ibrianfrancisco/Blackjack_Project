@@ -12,20 +12,26 @@
 
 
 /* ---------- Event Listeners ---------- */
-// fadeout Initial page and fadein my Game page.
-$('#beginGame').click(function() {
+// fadeout Initial page and fadein my Game Page
+$('#letsPlayButton').click(function() {
   $('.mainPage').fadeOut(800, function() {
     $('#gamePage').fadeIn(800);
   });
 })
 
 // fadeout Initial page and fadein How To Play
-$('#howToPlay').click(function() {
+$('#playButton').click(function() {
   $('.mainPage').fadeOut(800, function() {
-    $('#howToPlayy').fadeIn(800);
+    $('#howToPlay').fadeIn(800);
   });
 })
 
+// fadeout How To Play and fadein Game Page
+$('#letsPlay').click(function() {
+  $('#howToPlay').fadeOut(800, function() {
+    $('#gamePage').fadeIn(800);
+  });
+})
 
 
 
