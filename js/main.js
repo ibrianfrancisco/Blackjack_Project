@@ -1,7 +1,4 @@
 /* ---------- Variables ---------- */
-
-var playerHand;
-var dealerHand;
 var playerFunds;
 var amountBet;
 
@@ -16,35 +13,38 @@ var amountBet;
 
 /* ---------- Event Listeners ---------- */
 // fadeout Initial page and fadein my Game Page
-$('#letsPlayButton').click(function() {
-  $('.mainPage').fadeOut(800, function() {
-    $('#gamePage').fadeIn(800);
+$("#letsPlayButton").click(function() {
+  $(".mainPage").fadeOut(800, function() {
+    $("#gamePage").fadeIn(800);
   });
 })
 
 // fadeout Initial page and fadein How To Play
-$('#howToButton').click(function() {
-  $('.mainPage').fadeOut(800, function() {
-    $('#howToPlay').fadeIn(800);
+$("#howToButton").click(function() {
+  $(".mainPage").fadeOut(800, function() {
+    $("#howToPlay").fadeIn(800);
   });
 })
 
 // fadeout How To Play and fadein Game Page
-$('#letsPlay').click(function() {
-  $('#howToPlay').fadeOut(800, function() {
-    $('#gamePage').fadeIn(800);
+$("#letsPlay").click(function() {
+  $("#howToPlay").fadeOut(800, function() {
+    $("#gamePage").fadeIn(800);
   });
 })
 
+
+
 // initial draw 2 cards for playerHand. ***Need to push into playerhand empty []***
   // Try to use jQuery .each instead of for loop. But this is good for now
-var drawACard = $('#PickACard').click(function() {
+var drawACard = $(".submitBet").click(function() {
   for(var i=0;i<2;i++) {
     var x = Math.floor(Math.random() * 52);
+    playerHand.push(deck[x]);
     console.log(deck[x]);
   }
-  return deck[x]
 });
+  // think of way to stop if same number comes up, draw a new number
 
 /* ---------- Functions ---------- */
 
@@ -56,7 +56,18 @@ var drawACard = $('#PickACard').click(function() {
 
 
 
-/* ---------- Initial page ---------- */
+
+
+
+
+/* ---------- Game page ---------- */
+
+var count = 0;
+
+$("#bet5").click(function() {
+  count += 5;
+  $("#counter").html(count);
+});
 
 
 
@@ -68,35 +79,23 @@ var drawACard = $('#PickACard').click(function() {
 
 
 
-
-
-
-
-// var drawACard = $('#pickACard').click(function() {
-//   var x = Math.floor(Math.random() * 52)
-//   console.log(deck[x]);
-//   return deck[x]
-// });
-  // if same number comes up, draw a new number
 
 
 
 
 /*----------- Deck of Cards ---------*/
 
-var suits = ['Spades', 'Hearts', 'Clubs', 'Diamonds']
+var suits = ["Spades", "Hearts", "Clubs", "Diamonds"]
+var vals = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+var deck = []
+var playerHand = []
+var dealerHand = []
 
-var vals = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 
 var Card = function(suit, val) {
   this.suit = suit
   this.val = val
-  this.stateValue = function(){
-    return 'The ' + this.val + ' of ' + this.suit + '.'
-  }
 }
-
-var deck = []
 
 for(var i = 0; i < vals.length; i++){
   for(var j = 0; j < suits.length; j++){
@@ -105,32 +104,10 @@ for(var i = 0; i < vals.length; i++){
   }
 }
 
-// document.getElementById('showDeck').addEventListener('click', function() {
+// document.getElementById("showDeck").addEventListener("click", function() {
 //   console.log(deck)
 //   console.log(deck.length)
 // });
-
-
-/*------------ Form Input for betting -----------*/
-function FilterInput(event) {
-    var keyCode = ('which' in event) ? event.which : event.keyCode;
-
-    isNotWanted = (keyCode == 69 || keyCode == 101);
-    return !isNotWanted;
-}
-function handlePaste (e) {
-    var clipboardData, pastedData;
-
-    // Get pasted data via clipboard API
-    clipboardData = e.clipboardData || window.clipboardData;
-    pastedData = clipboardData.getData('Text').toUpperCase();
-
-    if(pastedData.indexOf('E')>-1) {
-        //alert('found an E');
-        e.stopPropagation();
-        e.preventDefault();
-    }
-}
 
 
 // Test this for multiple aces that come up

@@ -14,8 +14,8 @@
     <div class="content">
       <header class="renderGame">BlackJack</header>
       <div class="wrapper">
-        <button class="button renderGame" id="howToButton">How To Play</button>
-        <button class="button renderGame" id="letsPlayButton">Let's Play</button>
+        <button class="playButton renderGame" id="howToButton">How To Play</button>
+        <button class="playButton renderGame" id="letsPlayButton">Let's Play</button>
       </div>
     </div>
   </div>
@@ -28,7 +28,7 @@
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui ab itaque quos ad inventore corporis dolorem porro deleniti nulla aspernatur labore unde ipsum vel, consectetur rerum dolor necessitatibus odit. Aliquam?</p>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia similique, in, perferendis saepe vel facilis harum quam eligendi laudantium velit laborum consectetur suscipit asperiores tempore. Odio dolorem, assumenda obcaecati accusantium!</p>
       <div class="wrapper">
-        <button class="button renderGame" id="letsPlay">Let's Play</button>
+        <button class="playButton renderGame" id="letsPlay">Let's Play</button>
       </div>
     </div>
   </div>
@@ -36,24 +36,37 @@
 <!-- Game page -->
   <div class="gamePage" id="gamePage">
     <div class="content">
-<!--       <form>
-        <input class="submitBet" type="submit" onkeydown="return FilterInput(event)" onpaste="handlePaste(event)" max="100" min="1" value="Bet">
-        <input class="inputBet" type="number" onkeydown="return FilterInput(event)" onpaste="handlePaste(event)" max="100" min="1" placeholder="Enter amount here">
-      </form> -->
-
-
-      <button id=PickACard></button>
+      <div class="wrapper">
+        <div class="card back-red"></div>
+        <div class="card back-red"></div>
+        <div class="card back-red"></div>
+        <div class="card back-red"></div>
+        <div class="card back-red"></div>
+      </div>
+      <div class="wrapper">
+        <div class="card back-blue"></div>
+        <div class="card back-blue"></div>
+        <div class="card back-blue"></div>
+        <div class="card back-blue"></div>
+        <div class="card back-blue"></div>
+      </div>
+    </div>
+    <div class="betWrapper">
+      <button class="submitBet">Bet</button>
+      <button class="submitBet">Stand</button>
+      <button class="submitBet">Hit</button>
+      <span>Funds</span>
+    </div>
+    <div class="chipWrapper">
+      <button class="chips" id="bet5">5</button>
+      <button class="chips" id="bet10">10</button>
+      <button class="chips" id="bet20">20</button>
+      <button class="chips" id="bet50">50</button>
+      <button class="chips" id="bet100">100</button>
+      <div id="counter"></div>
     </div>
   </div>
 
-
-
-
-
-  <!--     how to assign css to cards
-    <div class="card hearts r08"></div>
-    <div class="card h07"></div>
-   -->
   <script src="js/main.js"></script>
 </body>
 </html>

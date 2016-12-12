@@ -6,12 +6,12 @@ body {
 
 .mainPage, .gamePage {
   margin: 0 auto;
-  width: 900px;
+  width: 1000px;
 }
 
 .gamePage {
   display: none;
-  width: 900px;
+  width: 1000px;
 }
 
 h1 {
@@ -33,6 +33,11 @@ header {
   cursor: default;
 }
 
+span {
+  font-size: 24px;
+  margin: 0 0 0 20px;
+}
+
 input.inputBet {
   padding: 5px;
   width: 150px;
@@ -47,7 +52,49 @@ div.wrapper {
   text-align: center;
 }
 
-.button {
+.chipWrapper {
+  width: 100%;
+  margin: 0;
+  display: inline-block;
+  text-align: center;
+}
+
+/*What was the deal again with the width not exactly equaling the total width?*/
+/*200 + 700 = 900 but it doesn't fit. forgot what to do*/
+.betWrapper {
+  width: 100%;
+  margin: 0;
+  display: inline-block;
+  text-align: center;
+}
+
+.submitBet {
+  padding: 15px;
+  border-radius: 7px;
+  margin: 10px;
+  font-size: 18px;
+  outline: none;
+  width: 100px;
+  display: inline-block;
+}
+
+#counter {
+  background-color: red;
+  width: 100px;
+  border: solid black 2px;
+  display: inline-block;
+}
+
+.chips {
+  padding: 20px;
+  border-radius: 20px;
+  outline: none;
+  font-size: 18px;
+  width: 80px;
+  margin: 20px;
+}
+
+.playButton {
   padding: 50px;
   border-radius: 25px;
   margin: 0 10px;
