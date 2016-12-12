@@ -1,7 +1,7 @@
 /* ---------- Variables ---------- */
 var playerFunds = 500;
-var amountBet;
-
+var amountBet = 0;
+$("#playerFund").html(playerFunds);
 
 /* ---------- Event Listeners ---------- */
 // fadeout Initial page and fadein my Game Page
@@ -26,41 +26,83 @@ $("#letsPlay").click(function() {
 })
 
 
-// initial draw 2 cards for playerHand. ***Need to push into playerhand empty []***
-  // Try to use jQuery .each instead of for loop. But this is good for now
+// initial draw 2 cards for playerHand. ** How to add values together?
 $("#submitBet").click(function() {
   for(var i=0;i<2;i++) {
+    saveBet();
     var x = Math.floor(Math.random() * 52);
     playerHand.push(deck[x]);
+    var el = document.getElementsByClassName('playerCards')[i];
+    el.classList.add(cardClasses[x]);
     console.log(deck[x]);
+    playerScoreTotal();
+    $("#playerValue").html(playerScore);
   }
 });
-  // think of way to stop if same number comes up, draw a new number
 
 /* ---------- Functions ---------- */
 
+// function to add amountBet to bet button
+function saveBet() {
+  var x = amountBet;
+}
 
-// Hit button
+
+// hit button
 $("#hitButton").click(function() {
+  console.log(playerHand);
   var x = Math.floor(Math.random() * 52);
+  // pulls from deck and pushes into playerHand
   playerHand.push(deck[x]);
-  $('.playercards').each(function(idx) {
-    $(this).addClass(cardClasses[x]);
-  });
+  //** How to add the class to each div at a time per click ?
+  // $('.playerCards').each(function() {
+  //   $(this).addClass(cardClasses[x]);
+  //   console.log($(this));
+  // });
+  //if (playerHand.length < 3) {
+    for (var i = 0; i < playerHand.length; i++) {
+      var el = document.getElementsByClassName('playerCards')[i];
+      //var newName = cardClasses[x];
+      el.classList.add(cardClasses[x]);
+    }
+  //}
+  //** How to add the values together and display ?
+  for(var i=0; i < playerHand.length; i++) {
+    var values = playerHand[i].val;
+    console.log(playerHand[i].val);
+    $("#playerValue").html(values);
+  }
   console.log(deck[x]);
 });
 
 
 
+// var playerCard1 = playerHand[0];
+// var playerCard2 = playerHand[1];
+
+// var totalValue = playerCard1.val + playerCard2.val;
 
 
+// chris's keeping tabs on score total function
+function playerScoreTotal() {
+  playerScore = 0;
+  for(var i=0; i < playerHand.length; i++) {
+    playerScore += playerHand[i].val;
+  }
+  return playerScore;
+}
 
-
+// function dealerScoreTotal() {
+//   dealerScore = 0;
+//   for(var i=0; i < dealerHandvalue.length; i++) {
+//     dealerScore += dealerHand[i].val;
+//   }
+//   return dealerScore;
+// }
 
 /* ---------- Game page ---------- */
 
-var amountBet = 0;
-
+// betting chips
 $("#bet5").click(function() {
   amountBet += 5;
   $("#counter").html(amountBet);
@@ -103,13 +145,13 @@ $(".erase").click(function() {
 
 /*----------- Deck of Cards ---------*/
 
-var cardClasses = ['sA','hA','cA','dA','s02','h02','c02','d02','s03','h03','c03','d03','s04','h04','c04','d04','s05','h05','c05','d05','s06','h06','c06','d06','s07','h07','c07','d07','s08','h08','c08','d08','s09','h09','c09','d09','s10','h10','c10','d10','sJ','hJ','cJ','dJ','sQ','hQ','cQ','dQ','sQ','hK','cK','dK']
+var cardClasses = ['sA','hA','cA','dA','s02','h02','c02','d02','s03','h03','c03','d03','s04','h04','c04','d04','s05','h05','c05','d05','s06','h06','c06','d06','s07','h07','c07','d07','s08','h08','c08','d08','s09','h09','c09','d09','s10','h10','c10','d10','sJ','hJ','cJ','dJ','sQ','hQ','cQ','dQ','sQ','hK','cK','dK'];
 
-var suits = ["Spades", "Hearts", "Clubs", "Diamonds"]
-var vals = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
-var deck = []
-var playerHand = []
-var dealerHand = []
+var suits = ["Spades", "Hearts", "Clubs", "Diamonds"];
+var vals = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10];
+var deck = [];
+var playerHand = [];
+var dealerHand = [];
 
 
 var Card = function(suit, val) {
@@ -124,13 +166,13 @@ for(var i = 0; i < vals.length; i++){
   }
 }
 
-document.getElementById("standButton").addEventListener("click", function() {
-  console.log(deck)
-  console.log(deck.length)
-});
+// document.getElementById("standButton").addEventListener("click", function() {
+//   console.log(deck)
+//   console.log(deck.length)
+// });
 
 
 // Test this for multiple aces that come up
-// if ((playerHand > 21) && (aceCount > 0)) {
+// if ((playerHandValue > 21) && (aceCount > 0)) {
 //   playerHand = playerHand - aceCount * 10;
 // }
