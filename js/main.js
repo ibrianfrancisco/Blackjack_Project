@@ -29,7 +29,6 @@ $("#letsPlay").click(function() {
 // BET BUTTON: initial draw 2 cards for playerHand.
 $("#submitBet").click(function() {
   for(var i=0;i<2;i++) {
-    saveBet();
     var x = Math.floor(Math.random() * 52);
     playerHand.push(deck[x]);
     var el = document.getElementsByClassName('playerCards')[i];
@@ -37,6 +36,14 @@ $("#submitBet").click(function() {
     console.log(deck[x]);
     playerScoreTotal();
     $("#playerValue").html(playerScore);
+  }
+  for(var i=0; i<1;i++) {
+    var x = Math.floor(Math.random() * 52);
+    dealerHand.push(deck[x]);
+    var el = document.getElementsByClassName('dealerCards')[i];
+    el.classList.add(cardClasses[x]);
+    dealerScoreTotal();
+    $("#dealerValue").html(dealerScore);
   }
 });
 
@@ -99,7 +106,11 @@ $(".erase").click(function() {
 
 // function to add amountBet to bet button
 function saveBet() {
-  var x = amountBet;
+}
+
+function dealerBet() {
+  var x = Math.floor(Math.random() * 52);
+  dealerHand.push(deck[x]);
 }
 
 
@@ -112,13 +123,13 @@ function playerScoreTotal() {
   return playerScore;
 }
 
-// function dealerScoreTotal() {
-//   dealerScore = 0;
-//   for(var i=0; i < dealerHandvalue.length; i++) {
-//     dealerScore += dealerHand[i].val;
-//   }
-//   return dealerScore;
-// }
+function dealerScoreTotal() {
+  dealerScore = 0;
+  for(var i=0; i < dealerHand.length; i++) {
+    dealerScore += dealerHand[i].val;
+  }
+  return dealerScore;
+}
 
 /* ---------- Game page ---------- */
 
