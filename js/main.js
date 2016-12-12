@@ -9,24 +9,24 @@ $("#letsPlayButton").click(function() {
   $(".mainPage").fadeOut(800, function() {
     $("#gamePage").fadeIn(800);
   });
-})
+});
 
 // fadeout Initial page and fadein How To Play
 $("#howToButton").click(function() {
   $(".mainPage").fadeOut(800, function() {
     $("#howToPlay").fadeIn(800);
   });
-})
+});
 
 // fadeout How To Play and fadein Game Page
 $("#letsPlay").click(function() {
   $("#howToPlay").fadeOut(800, function() {
     $("#gamePage").fadeIn(800);
   });
-})
+});
 
 
-// initial draw 2 cards for playerHand. ** How to add values together?
+// BET BUTTON: initial draw 2 cards for playerHand.
 $("#submitBet").click(function() {
   for(var i=0;i<2;i++) {
     saveBet();
@@ -40,15 +40,8 @@ $("#submitBet").click(function() {
   }
 });
 
-/* ---------- Functions ---------- */
 
-// function to add amountBet to bet button
-function saveBet() {
-  var x = amountBet;
-}
-
-
-// hit button
+// HIT BUTTON: adding one card per click
 $("#hitButton").click(function() {
   console.log(playerHand);
   var x = Math.floor(Math.random() * 52);
@@ -56,8 +49,8 @@ $("#hitButton").click(function() {
   playerHand.push(deck[x]);
   //** How to add the class to each div at a time per click ?
   // $('.playerCards').each(function() {
-  //   $(this).addClass(cardClasses[x]);
-  //   console.log($(this));
+    // $(this).addClass(cardClasses[x]);
+    // console.log($(this));
   // });
   //if (playerHand.length < 3) {
     for (var i = 0; i < playerHand.length; i++) {
@@ -76,33 +69,7 @@ $("#hitButton").click(function() {
 });
 
 
-
-// var playerCard1 = playerHand[0];
-// var playerCard2 = playerHand[1];
-
-// var totalValue = playerCard1.val + playerCard2.val;
-
-
-// chris's keeping tabs on score total function
-function playerScoreTotal() {
-  playerScore = 0;
-  for(var i=0; i < playerHand.length; i++) {
-    playerScore += playerHand[i].val;
-  }
-  return playerScore;
-}
-
-// function dealerScoreTotal() {
-//   dealerScore = 0;
-//   for(var i=0; i < dealerHandvalue.length; i++) {
-//     dealerScore += dealerHand[i].val;
-//   }
-//   return dealerScore;
-// }
-
-/* ---------- Game page ---------- */
-
-// betting chips
+// BETTING CHIPS: updates amountBet.
 $("#bet5").click(function() {
   amountBet += 5;
   $("#counter").html(amountBet);
@@ -128,7 +95,35 @@ $(".erase").click(function() {
   $("#counter").html(amountBet);
 });
 
+/* ---------- Functions ---------- */
 
+// function to add amountBet to bet button
+function saveBet() {
+  var x = amountBet;
+}
+
+
+// chris's keeping tabs on score total function
+function playerScoreTotal() {
+  playerScore = 0;
+  for(var i=0; i < playerHand.length; i++) {
+    playerScore += playerHand[i].val;
+  }
+  return playerScore;
+}
+
+// function dealerScoreTotal() {
+//   dealerScore = 0;
+//   for(var i=0; i < dealerHandvalue.length; i++) {
+//     dealerScore += dealerHand[i].val;
+//   }
+//   return dealerScore;
+// }
+
+/* ---------- Game page ---------- */
+
+// BETTING WIN/LOSS MATH:
+//
 // function adjustBet() {
 //   if(player > dealer) {
 //     amountBet *= 2
@@ -136,11 +131,6 @@ $(".erase").click(function() {
 //     amountBet = 0
 //   }
 // } else if (player < dealer)
-
-
-
-
-
 
 
 /*----------- Deck of Cards ---------*/
