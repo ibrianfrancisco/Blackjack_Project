@@ -37,33 +37,34 @@
   <div class="gamePage" id="gamePage">
     <div class="content">
       <div class="wrapper">
-        <div class="card back-red"></div>
-        <div class="card back-red"></div>
-        <div class="card back-red"></div>
-        <div class="card back-red"></div>
-        <div class="card back-red"></div>
+        <div class="card dealercards" id="dealerSlot1"></div>
+        <div class="card dealercards" id="dealerSlot2"></div>
+        <div class="card dealercards" id="dealerSlot3"></div>
+        <div class="card dealercards" id="dealerSlot4"></div>
+        <div class="card dealercards" id="dealerSlot5"></div>
       </div>
       <div class="wrapper">
-        <div class="card back-blue"></div>
-        <div class="card back-blue"></div>
-        <div class="card back-blue"></div>
-        <div class="card back-blue"></div>
-        <div class="card back-blue"></div>
+        <div class="card playercards" id="playerSlot1"></div>
+        <div class="card playercards" id="playerSlot2"></div>
+        <div class="card playercards" id="playerSlot3"></div>
+        <div class="card playercards" id="playerSlot4"></div>
+        <div class="card playercards" id="playerSlot5"></div>
       </div>
     </div>
-    <div class="betWrapper">
-      <button class="submitBet">Bet</button>
-      <button class="submitBet">Stand</button>
-      <button class="submitBet">Hit</button>
+    <div class="wrapper">
+      <button class="gameButtons" id="submitBet">Bet</button>
+      <button class="gameButtons" id="standButton">Stand</button>
+      <button class="gameButtons" id="hitButton">Hit</button>
       <span>Funds</span>
     </div>
-    <div class="chipWrapper">
+    <div class="wrapper">
       <button class="chips" id="bet5">5</button>
       <button class="chips" id="bet10">10</button>
       <button class="chips" id="bet20">20</button>
       <button class="chips" id="bet50">50</button>
       <button class="chips" id="bet100">100</button>
-      <div id="counter"></div>
+      <div id="counter">0</div>
+      <button class="erase">Erase</button>
     </div>
   </div>
 
