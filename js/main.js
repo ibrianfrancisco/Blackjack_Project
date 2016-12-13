@@ -34,6 +34,7 @@ $('#submit-bet').click(function() {
     var x = Math.floor(Math.random() * 52);
     playerHand.push(deck[x]);
     var el = document.getElementsByClassName('player-cards')[i];
+    el.classList.remove('back-blue');
     el.classList.add(cardClasses[x]);
     playerScoreTotal();
     $('#player-value').html(playerScore);
@@ -42,6 +43,7 @@ $('#submit-bet').click(function() {
     var x = Math.floor(Math.random() * 52);
     dealerHand.push(deck[x]);
     var el = document.getElementsByClassName('dealer-cards')[i];
+    el.classList.remove('back-blue');
     el.classList.add(cardClasses[x]);
     dealerScoreTotal();
     $('#dealer-value').html(dealerScore);
@@ -61,6 +63,7 @@ $('#hit-button').click(function() {
   playerHand.push(deck[x]);
   for (var i = 0; i < playerHand.length; i++)
     var el = document.getElementsByClassName('player-cards')[i];
+    el.classList.remove('back-blue');
     el.classList.add(cardClasses[x]);
     playerScoreTotal();
     $('#player-value').html(playerScore);
@@ -76,6 +79,7 @@ $('#stand-button').click(function() {
     dealerHand.push(deck[x]);
     for(var i=1; i<dealerHand.length; i++)
     var el = document.getElementsByClassName('dealer-cards')[i];
+    el.classList.remove('back-blue');
     el.classList.add(cardClasses[x]);
     dealerScoreTotal();
   }
@@ -205,8 +209,8 @@ for(var i = 0; i < vals.length; i++){
 {$('#deal-again').click(function() {
   playerHand = [];
   dealerHand = [];
-  $('.player-cards').attr('class', '').addClass('card player-cards');
-  $('.dealer-cards').attr('class', '').addClass('card dealer-cards');
+  $('.player-cards').attr('class', '').addClass('card player-cards back-blue');
+  $('.dealer-cards').attr('class', '').addClass('card dealer-cards back-blue');
   $('.display-values').html('');
   $('#counter').html(0);
   erase();

@@ -301,14 +301,14 @@
 .card.♣02 {
   background-image: url("../images/clubs/clubs-r02.svg"); }
 
-.card.joker {
+/*.card.joker {
   background-image: url("../images/jokers/joker.svg"); }
 
 .card.joker-black {
   background-image: url("../images/jokers/joker-black.svg"); }
 
 .card.joker-red {
-  background-image: url("../images/jokers/joker-red.svg"); }
+  background-image: url("../images/jokers/joker-red.svg"); }*/
 
 .card.back {
   background-image: url("../images/backs/blue.svg"); }
@@ -324,7 +324,7 @@
    them correctly in case text or other symbols are
    layered on them with CSS pseudo-selectors, new
    classes/rules, etc. */
-.card.west,
+/*.card.west,
 .card.W {
   transform: rotate(90deg);
   margin: auto 0.75em; }
@@ -345,4 +345,4 @@
   margin: auto 0.75em; }
   .card.east.shadow,
   .card.E.shadow {
-    box-shadow: -2px 2px 3px 0 rgba(41, 41, 41, 0.75); }
+    box-shadow: -2px 2px 3px 0 rgba(41, 41, 41, 0.75); }*/
