@@ -4,12 +4,12 @@ body {
   user-select: none;
 }
 
-.mainPage, .gamePage {
+.main-page, .game-page {
   margin: 0 auto;
   width: 1000px;
 }
 
-.gamePage {
+.game-page {
   display: none;
   width: 1000px;
 }
@@ -39,16 +39,6 @@ span {
   color: #ffffff;
 }
 
-input.inputBet {
-  padding: 5px;
-  width: 150px;
-}
-
-input.submitBet {
-  padding: 10px;
-  width: 50px;
-}
-
 /*What was the deal again with the width not exactly equaling the total width?*/
 /*200 + 700 = 900 but it doesn't fit. forgot what to do*/
 div.wrapper {
@@ -58,14 +48,14 @@ div.wrapper {
   text-align: center;
 }
 
-.displayValues {
+.display-values {
   text-align: center;
   background-color: red;
   color: #ffffff;
   font-size: 20px;
 }
 
-.gameButtons {
+.game-buttons {
   padding: 15px;
   border-radius: 7px;
   margin: 10px;
@@ -75,7 +65,7 @@ div.wrapper {
   display: inline-block;
 }
 
-#counter, #playerFund{
+#counter, #player-fund {
   background-color: rgba(100, 100, 100, 0.3);
   border: solid black 1px;
   outline: none;
@@ -98,7 +88,7 @@ div.wrapper {
   margin: 20px;
 }
 
-.playButton {
+.play-button {
   padding: 50px;
   border-radius: 25px;
   margin: 0 10px;

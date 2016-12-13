@@ -1,77 +1,80 @@
 /* ---------- Variables ---------- */
 var playerFunds = 500;
 var amountBet = 0;
-$("#playerFund").html(playerFunds);
+$("#player-fund").html(playerFunds);
 
 /* ---------- Event Listeners ---------- */
 // fadeout Initial page and fadein my Game Page
-$("#letsPlayButton").click(function() {
-  $(".mainPage").fadeOut(800, function() {
-    $("#gamePage").fadeIn(800);
+$("#lets-play-button").click(function() {
+  $(".main-page").fadeOut(800, function() {
+    $("#game-page").fadeIn(800);
   });
 });
 
 // fadeout Initial page and fadein How To Play
-$("#howToButton").click(function() {
-  $(".mainPage").fadeOut(800, function() {
-    $("#howToPlay").fadeIn(800);
+$("#how-to-button").click(function() {
+  $(".main-page").fadeOut(800, function() {
+    $("#how-to-play").fadeIn(800);
   });
 });
 
 // fadeout How To Play and fadein Game Page
-$("#letsPlay").click(function() {
-  $("#howToPlay").fadeOut(800, function() {
-    $("#gamePage").fadeIn(800);
+$("#lets-play").click(function() {
+  $("#how-to-play").fadeOut(800, function() {
+    $("#game-page").fadeIn(800);
   });
 });
 
 
 // BET BUTTON: initial draw 2 cards for playerHand.
-$("#submitBet").click(function() {
+$("#submit-bet").click(function() {
   for(var i=0;i<2;i++) {
     var x = Math.floor(Math.random() * 52);
     playerHand.push(deck[x]);
-    var el = document.getElementsByClassName('playerCards')[i];
+    var el = document.getElementsByClassName('player-cards')[i];
     el.classList.add(cardClasses[x]);
     playerScoreTotal();
-    $("#playerValue").html(playerScore);
+    $("#player-value").html(playerScore);
   }
   for(var i=0; i<1;i++) {
     var x = Math.floor(Math.random() * 52);
     dealerHand.push(deck[x]);
-    var el = document.getElementsByClassName('dealerCards')[i];
+    var el = document.getElementsByClassName('dealer-cards')[i];
     el.classList.add(cardClasses[x]);
     dealerScoreTotal();
-    $("#dealerValue").html(dealerScore);
+    $("#dealer-value").html(dealerScore);
+  }
+  if (playerScore === 21) {
+    alert("Player got BlackJack!")
   }
 });
 
 
 // HIT BUTTON: adding one card per click
-$("#hitButton").click(function() {
+$("#hit-button").click(function() {
   var x = Math.floor(Math.random() * 52);
   playerHand.push(deck[x]);
   for (var i = 0; i < playerHand.length; i++)
-    var el = document.getElementsByClassName('playerCards')[i];
+    var el = document.getElementsByClassName('player-cards')[i];
     el.classList.add(cardClasses[x]);
     playerScoreTotal();
-    $("#playerValue").html(playerScore);
+    $("#player-value").html(playerScore);
   if (playerScore > 21) {
     alert("Player Bust");
   }
 });
 
 // STAND BUTTON: do everything
-$("#standButton").click(function() {
+$("#stand-button").click(function() {
   while (dealerScore < 17) {
     var x = Math.floor(Math.random() * 52);
     dealerHand.push(deck[x]);
     for(var i=1; i<dealerHand.length; i++)
-    var el = document.getElementsByClassName('dealerCards')[i];
+    var el = document.getElementsByClassName('dealer-cards')[i];
     el.classList.add(cardClasses[x]);
     dealerScoreTotal();
   }
-  $("#dealerValue").html(dealerScore);
+  $("#dealer-value").html(dealerScore);
   if (dealerScore > 21) {
     alert("Player WINS");
   } else if (playerScore > dealerScore) {
@@ -116,23 +119,6 @@ $(".erase").click(function() {
 // function saveBet() {
 // }
 
-
-// chris's keeping tabs on score total function
-// function playerScoreTotal() {
-//  playerScore = 0;
-//  var aceCount = 0;
-//  playerHand.forEach(function(card) {
-//    aceCount += (card.val === 'Ace') ? 1 : 0;
-//  });
-// //  for (var i = 0; i < playerHand.length; i++) {
-//    playerScore += getCardValue(playerHand[i]);
-//  }
-//  while (playerScore > 21 && aceCount) {
-//    playerScore -= 10;
-//    aceCount--;
-//  }
-//  return playerScore;
-// }
 
 function playerScoreTotal() {
   playerScore = 0;
@@ -202,10 +188,10 @@ for(var i = 0; i < vals.length; i++){
   }
 }
 
-$("#dealAgain").click(function() {
+$("#deal-again").click(function() {
   playerHand = [];
   dealerHand = [];
-  $(".playerCards").attr("class", "").addClass("card playerCards");
-  $(".dealerCards").attr("class", "").addClass("card dealerCards");
-  $(".displayValues").html("");
+  $(".player-cards").attr("class", "").addClass("card player-cards");
+  $(".dealer-cards").attr("class", "").addClass("card dealer-cards");
+  $(".display-values").html("");
 });
