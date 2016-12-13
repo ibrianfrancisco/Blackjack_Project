@@ -72,9 +72,6 @@ $("#standButton").click(function() {
     dealerScoreTotal();
   }
   $("#dealerValue").html(dealerScore);
-  // if (dealerScore < 17) {
-  //   dealerHand.push(deck[x]);
-  // }
   if (dealerScore > 21) {
     alert("Player WINS");
   } else if (playerScore > dealerScore) {
@@ -155,8 +152,16 @@ function playerScoreTotal() {
 
 function dealerScoreTotal() {
   dealerScore = 0;
+  var aceCount = 0;
+  dealerHand.forEach(function(card) {
+    aceCount += (card.val === 11) ? 1 :0;
+  });
   for(var i=0; i < dealerHand.length; i++) {
     dealerScore += dealerHand[i].val;
+  }
+  while (dealerScore > 21 && aceCount > 0) {
+    dealerScore -= 10;
+    aceCount--;
   }
   return dealerScore;
 }
@@ -197,10 +202,10 @@ for(var i = 0; i < vals.length; i++){
   }
 }
 
-
-// Test this for multiple aces that come up
-// function aces() {
-// if ((playerScore > 21) && (aceCount > 0)) {
-//   playerHand = playerHand - aceCount * 10;
-//   }
-// }
+$("#dealAgain").click(function() {
+  playerHand = [];
+  dealerHand = [];
+  $(".playerCards").attr("class", "").addClass("card playerCards");
+  $(".dealerCards").attr("class", "").addClass("card dealerCards");
+  $(".displayValues").html("");
+});
