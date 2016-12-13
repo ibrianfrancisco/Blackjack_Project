@@ -120,28 +120,35 @@ $(".erase").click(function() {
 // }
 
 
-function playerScoreTotal() {
- playerScore = 0;
- var aceCount = 0;
- playerHand.forEach(function(card) {
-   aceCount += (card.val === 'Ace') ? 1 : 0;
- });
- for (var i = 0; i < playerHand.length; i++) {
-   playerScore += getCardValue(playerHand[i]);
- }
- while (playerScore > 21 && aceCount) {
-   playerScore -= 10;
-   aceCount--;
- }
- return playerScore;
-}
-
-
 // chris's keeping tabs on score total function
+// function playerScoreTotal() {
+//  playerScore = 0;
+//  var aceCount = 0;
+//  playerHand.forEach(function(card) {
+//    aceCount += (card.val === 'Ace') ? 1 : 0;
+//  });
+// //  for (var i = 0; i < playerHand.length; i++) {
+//    playerScore += getCardValue(playerHand[i]);
+//  }
+//  while (playerScore > 21 && aceCount) {
+//    playerScore -= 10;
+//    aceCount--;
+//  }
+//  return playerScore;
+// }
+
 function playerScoreTotal() {
   playerScore = 0;
-  for(var i=0; i < playerHand.length; i++) {
+  var aceCount = 0;
+  playerHand.forEach(function(card) {
+    aceCount += (card.val === 11) ? 1 : 0;
+  });
+  for (var i=0; i < playerHand.length; i++) {
     playerScore += playerHand[i].val;
+  }
+  while (playerScore > 21 && aceCount > 0) {
+    playerScore -= 10;
+    aceCount--;
   }
   return playerScore;
 }
@@ -172,7 +179,7 @@ function dealerScoreTotal() {
 var cardClasses = ['sA','hA','cA','dA','s02','h02','c02','d02','s03','h03','c03','d03','s04','h04','c04','d04','s05','h05','c05','d05','s06','h06','c06','d06','s07','h07','c07','d07','s08','h08','c08','d08','s09','h09','c09','d09','s10','h10','c10','d10','sJ','hJ','cJ','dJ','sQ','hQ','cQ','dQ','sQ','hK','cK','dK'];
 
 var suits = ["Spades", "Hearts", "Clubs", "Diamonds"];
-var vals = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10];
+var vals = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10];
 var deck = [];
 var playerHand = [];
 var dealerHand = [];
