@@ -1,6 +1,7 @@
 /* ---------- Variables ---------- */
 var playerFunds = 500;
-
+var amountBet = 0;
+$('#player-fund').html(playerFunds);
 
 /* ---------- Event Listeners ---------- */
 // fadeout Initial page and fadein my Game Page
@@ -50,7 +51,7 @@ $('#submit-bet').click(function() {
   }
   if (playerScore === 21) {
     alert('Player got BlackJack!');
-    amountBet *= 2;
+    amountBet *= 2.5;
     playerFunds += amountBet;
     return $('#player-fund').html(playerFunds);
   }
@@ -69,6 +70,8 @@ $('#hit-button').click(function() {
     $('#player-value').html(playerScore);
   if (playerScore > 21) {
     alert('Player Bust');
+    playerFunds -= amountBet;
+    return $('#player-fund').html(playerFunds);
   }
 });
 
@@ -85,11 +88,11 @@ $('#stand-button').click(function() {
   }
   $('#dealer-value').html(dealerScore);
   if (dealerScore > 21) {
-    alert('Player WINS');
+    playerWins();
   } else if (playerScore > dealerScore) {
-    alert('Player WINS');
+    playerWins();
   } else if (playerScore < dealerScore) {
-    alert('Dealer WINS');
+    dealerWins();
   } else if (playerScore === dealerScore) {
     alert('PUSH');
   }
@@ -98,26 +101,26 @@ $('#stand-button').click(function() {
 
 // BETTING CHIPS: updates amountBet.
 $('#bet5').click(function() {
-  amountBet += 5;
-  $('#counter').html(amountBet);
-});
-$('#bet10').click(function() {
   amountBet += 10;
   $('#counter').html(amountBet);
 });
-$('#bet20').click(function() {
+$('#bet10').click(function() {
   amountBet += 20;
   $('#counter').html(amountBet);
 });
-$('#bet50').click(function() {
+$('#bet20').click(function() {
   amountBet += 50;
   $('#counter').html(amountBet);
 });
-$('#bet100').click(function() {
+$('#bet50').click(function() {
   amountBet += 100;
   $('#counter').html(amountBet);
 });
-$('.erase').click(function() {
+$('#bet100').click(function() {
+  amountBet += 500;
+  $('#counter').html(amountBet);
+});
+$('#erase').click(function() {
   amountBet = 0;
   $('#counter').html(amountBet);
 });
@@ -128,16 +131,8 @@ $('.erase').click(function() {
 //   if (playerScore)
 // }
 
-var amountBet = 0;
-$('#player-fund').html(playerFunds);
-
 
 /* ---------- Functions ---------- */
-function erase() {
-  amountBet = 0;
-  $('#counter').html(amountBet);
-}
-
 function playerScoreTotal() {
   playerScore = 0;
   var aceCount = 0;
@@ -168,6 +163,19 @@ function dealerScoreTotal() {
     aceCount--;
   }
   return dealerScore;
+}
+
+function playerWins() {
+  alert('Player WINS');
+  amountBet *= 2;
+  playerFunds += amountBet;
+  return $('#player-fund').html(playerFunds);
+}
+
+function dealerWins() {
+  alert('Dealer WINS');
+  playerFunds -= amountBet;
+  return $('#player-fund').html(playerFunds);
 }
 
 /* ---------- Game page ---------- */
@@ -213,6 +221,7 @@ for(var i = 0; i < vals.length; i++){
   $('.dealer-cards').attr('class', '').addClass('card dealer-cards back-blue');
   $('.display-values').html('');
   $('#counter').html(0);
-  erase();
+  amountBet = 0;
+  $('#counter').html(amountBet);
   });
 };
