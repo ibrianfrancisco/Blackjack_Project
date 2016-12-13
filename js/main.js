@@ -33,7 +33,6 @@ $("#submitBet").click(function() {
     playerHand.push(deck[x]);
     var el = document.getElementsByClassName('playerCards')[i];
     el.classList.add(cardClasses[x]);
-    console.log(deck[x]);
     playerScoreTotal();
     $("#playerValue").html(playerScore);
   }
@@ -50,30 +49,43 @@ $("#submitBet").click(function() {
 
 // HIT BUTTON: adding one card per click
 $("#hitButton").click(function() {
-  console.log(playerHand);
   var x = Math.floor(Math.random() * 52);
-  // pulls from deck and pushes into playerHand
   playerHand.push(deck[x]);
-  //** How to add the class to each div at a time per click ?
-  // $('.playerCards').each(function() {
-    // $(this).addClass(cardClasses[x]);
-    // console.log($(this));
-  // });
-  //if (playerHand.length < 3) {
-    for (var i = 0; i < playerHand.length; i++) {
-      var el = document.getElementsByClassName('playerCards')[i];
-      //var newName = cardClasses[x];
-      el.classList.add(cardClasses[x]);
-    }
-  //}
-  //** How to add the values together and display ?
-  for(var i=0; i < playerHand.length; i++) {
-    var values = playerHand[i].val;
-    console.log(playerHand[i].val);
-    $("#playerValue").html(values);
+  for (var i = 0; i < playerHand.length; i++)
+    var el = document.getElementsByClassName('playerCards')[i];
+    el.classList.add(cardClasses[x]);
+    playerScoreTotal();
+    $("#playerValue").html(playerScore);
+  if (playerScore > 21) {
+    alert("Player Bust");
   }
-  console.log(deck[x]);
 });
+
+// STAND BUTTON: do everything
+$("#standButton").click(function() {
+  var x = Math.floor(Math.random() * 52);
+  dealerHand.push(deck[x]);
+  for(var i=1; i<dealerHand.length; i++) //{
+    var el = document.getElementsByClassName('dealerCards')[i];
+    el.classList.add(cardClasses[x]);
+  // }
+  dealerScoreTotal();
+  $("#dealerValue").html(dealerScore);
+  // if (dealerScore > 16) {
+  //   dealerHand.push(deck[x]);
+  // }
+  // if (playerScore > dealerScore) {
+  //   alert("Player WINS");
+  // } else if (playerScore < dealerScore) {
+  //   alert("Dealer WINS");
+  // } else if (playerScore === dealerScore) {
+  //   alert("PUSH");
+  // }
+});
+
+
+
+
 
 
 // BETTING CHIPS: updates amountBet.
@@ -105,14 +117,8 @@ $(".erase").click(function() {
 /* ---------- Functions ---------- */
 
 // function to add amountBet to bet button
-function saveBet() {
-}
-
-function dealerBet() {
-  var x = Math.floor(Math.random() * 52);
-  dealerHand.push(deck[x]);
-}
-
+// function saveBet() {
+// }
 
 // chris's keeping tabs on score total function
 function playerScoreTotal() {
@@ -167,13 +173,10 @@ for(var i = 0; i < vals.length; i++){
   }
 }
 
-// document.getElementById("standButton").addEventListener("click", function() {
-//   console.log(deck)
-//   console.log(deck.length)
-// });
-
 
 // Test this for multiple aces that come up
-// if ((playerHandValue > 21) && (aceCount > 0)) {
+// function aces() {
+// if ((playerScore > 21) && (aceCount > 0)) {
 //   playerHand = playerHand - aceCount * 10;
+//   }
 // }
