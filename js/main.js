@@ -63,29 +63,28 @@ $("#hitButton").click(function() {
 
 // STAND BUTTON: do everything
 $("#standButton").click(function() {
-  var x = Math.floor(Math.random() * 52);
-  dealerHand.push(deck[x]);
-  for(var i=1; i<dealerHand.length; i++) //{
+  while (dealerScore < 17) {
+    var x = Math.floor(Math.random() * 52);
+    dealerHand.push(deck[x]);
+    for(var i=1; i<dealerHand.length; i++)
     var el = document.getElementsByClassName('dealerCards')[i];
     el.classList.add(cardClasses[x]);
-  // }
-  dealerScoreTotal();
+    dealerScoreTotal();
+  }
   $("#dealerValue").html(dealerScore);
-  // if (dealerScore > 16) {
+  // if (dealerScore < 17) {
   //   dealerHand.push(deck[x]);
   // }
-  // if (playerScore > dealerScore) {
-  //   alert("Player WINS");
-  // } else if (playerScore < dealerScore) {
-  //   alert("Dealer WINS");
-  // } else if (playerScore === dealerScore) {
-  //   alert("PUSH");
-  // }
+  if (dealerScore > 21) {
+    alert("Player WINS");
+  } else if (playerScore > dealerScore) {
+    alert("Player WINS");
+  } else if (playerScore < dealerScore) {
+    alert("Dealer WINS");
+  } else if (playerScore === dealerScore) {
+    alert("PUSH");
+  }
 });
-
-
-
-
 
 
 // BETTING CHIPS: updates amountBet.
@@ -119,6 +118,24 @@ $(".erase").click(function() {
 // function to add amountBet to bet button
 // function saveBet() {
 // }
+
+
+function playerScoreTotal() {
+ playerScore = 0;
+ var aceCount = 0;
+ playerHand.forEach(function(card) {
+   aceCount += (card.val === 'Ace') ? 1 : 0;
+ });
+ for (var i = 0; i < playerHand.length; i++) {
+   playerScore += getCardValue(playerHand[i]);
+ }
+ while (playerScore > 21 && aceCount) {
+   playerScore -= 10;
+   aceCount--;
+ }
+ return playerScore;
+}
+
 
 // chris's keeping tabs on score total function
 function playerScoreTotal() {
