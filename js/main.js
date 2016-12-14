@@ -29,7 +29,7 @@ $('#lets-play').click(function() {
 // BET BUTTON: initial draw 2 cards for playerHand.
 $('#submit-bet').click(function() {
   if (amountBet > playerFunds || amountBet === 0) {
-    return alert("Check Funds");
+    return $('#message').html('Check Funds')
   }
   if (playerScore > 0) {
     return;
@@ -53,10 +53,11 @@ $('#submit-bet').click(function() {
     $('#dealer-value').html(dealerScore);
   }
   if (playerScore === 21) {
-    alert('Player got BlackJack!');
+    $('#message').html('Player got BlackJack!')
     amountBet *= 1.5;
     playerFunds += amountBet;
-    return $('#player-fund').html(playerFunds);
+    $('#player-fund').html(playerFunds);
+    return dealerScore === undefined;
   }
 });
 
@@ -74,7 +75,7 @@ $('#hit-button').click(function() {
     playerScoreTotal();
     $('#player-value').html(playerScore);
   if (playerScore > 21) {
-    alert('Player Bust');
+    $('#message').html('Bust!')
     playerFunds -= amountBet;
     $('#player-fund').html(playerFunds);
     return dealerScore = undefined;
@@ -100,42 +101,26 @@ $('#stand-button').click(function() {
   } else if (playerScore < dealerScore) {
     dealerWins();
   } else if (playerScore === dealerScore) {
-    alert('PUSH');
+    $('#message').html('PUSH')
   }
 });
 
-// BETTING CHIPS: updates amountBet. Do a delegation thing
-// if (dealerScore === undefined) {
-
-// }
-$('#bet10').click(function() {
-  amountBet += 10;
-  $('#counter').html(amountBet);
-});
-$('#bet20').click(function() {
-  amountBet += 20;
-  $('#counter').html(amountBet);
-});
-$('#bet50').click(function() {
-  amountBet += 50;
-  $('#counter').html(amountBet);
-});
-$('#bet100').click(function() {
-  amountBet += 100;
-  $('#counter').html(amountBet);
-});
-$('#bet500').click(function() {
-  amountBet += 500;
-  $('#counter').html(amountBet);
-});
+// BETTING CHIPS: updates amountBet.
+function btnClick(elem, amount) {
+  $(elem).click(function() {
+    amountBet += amount;
+    $('#counter').html(amountBet);
+  })
+}
+btnClick('#bet10', 10);
+btnClick('#bet20', 20);
+btnClick('#bet50', 50);
+btnClick('#bet100', 100);
+btnClick('#bet500', 500);
 $('#bet-max').click(function() {
   amountBet = playerFunds;
   $('#counter').html(amountBet);
 });
-// $('.chips').on('click', function() {
-//   amountBet += ;
-//   $('#counter').html(amountBet);
-// })
 
 
 /* ---------- Functions ---------- */
@@ -177,41 +162,37 @@ function applyBet() {
 }
 
 function playerWins() {
-  alert('Player WINS');
+  $('#message').html('Player Wins!')
   amountBet *= 2;
   playerFunds += amountBet;
   applyBet();
 }
 
 function dealerWins() {
-  alert('Dealer WINS');
+  $('#message').html('Dealer Wins!')
   playerFunds -= amountBet;
   applyBet();
 }
 
+
 /*----------- Deck of Cards ---------*/
 
 var cardClasses = ['sA','hA','cA','dA','s02','h02','c02','d02','s03','h03','c03','d03','s04','h04','c04','d04','s05','h05','c05','d05','s06','h06','c06','d06','s07','h07','c07','d07','s08','h08','c08','d08','s09','h09','c09','d09','s10','h10','c10','d10','sJ','hJ','cJ','dJ','sQ','hQ','cQ','dQ','sQ','hK','cK','dK'];
-
 var suits = ['Spades', 'Hearts', 'Clubs', 'Diamonds'];
 var vals = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10];
 var deck = [];
 var playerHand = [];
 var dealerHand = [];
-
-
 var Card = function(suit, val) {
   this.suit = suit
   this.val = val
 }
-
 for(var i = 0; i < vals.length; i++){
   for(var j = 0; j < suits.length; j++){
     var card = new Card(suits[j], vals[i])
     deck.push(card)
   }
 }
-
 
 // Turn this into a function where you click the bet button and it'll do all this and you can bet right away instead of having to click reset every single time
 $('#deal-again').click(function() {

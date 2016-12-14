@@ -44,12 +44,10 @@ header {
 
 span {
   font-size: 24px;
-  margin: 0 10px 0 138px;
+  margin: 0 0 0 25px;
   color: #ffffff;
 }
 
-/*What was the deal again with the width not exactly equaling the total width?*/
-/*200 + 700 = 900 but it doesn't fit. forgot what to do*/
 div.wrapper {
   width: 100%;
   margin: 0px;
@@ -62,16 +60,8 @@ div.wrapper {
   color: #ffffff;
   font-size: 28px;
   text-shadow: 2px 2px #000;
-}
-
-.game-buttons {
-  padding: 15px;
-  border-radius: 7px;
-  margin: 10px;
-  font-size: 18px;
-  outline: none;
-  width: 125px;
-  display: inline-block;
+  width: 100%;
+  height: 32px;
 }
 
 .display-funds {
@@ -88,13 +78,23 @@ div.wrapper {
   color: white;
 }
 
+.game-buttons {
+  padding: 15px;
+  border-radius: 7px;
+  margin: 15px;
+  font-size: 18px;
+  width: 13%;
+  display: inline-block;
+  outline: none;
+}
+
 .chips {
   padding: 20px;
   border-radius: 20px;
-  outline: none;
   font-size: 18px;
   width: 9%;
-  margin: 20px;
+  margin: 15px;
+  outline: none;
 }
 
 .play-button {
