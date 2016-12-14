@@ -36,7 +36,6 @@ $('#submit-bet').click(function() {
   }
   for(var i=0;i<2;i++) {
     var x = Math.floor(Math.random() * 52);
-    deck.splice(x, 1);
     playerHand.push(deck[x]);
     var el = document.getElementsByClassName('player-cards')[i];
     el.classList.remove('back-blue');
@@ -46,7 +45,6 @@ $('#submit-bet').click(function() {
   }
   for(var i=0; i<1;i++) {
     var x = Math.floor(Math.random() * 52);
-    deck.splice(x, 1);
     dealerHand.push(deck[x]);
     var el = document.getElementsByClassName('dealer-cards')[i];
     el.classList.remove('back-blue');
@@ -65,7 +63,6 @@ $('#submit-bet').click(function() {
 // HIT BUTTON: adding one card per click
 $('#hit-button').click(function() {
   var x = Math.floor(Math.random() * 52);
-  deck.splice(x, 1);
   playerHand.push(deck[x]);
   for (var i = 0; i < playerHand.length; i++)
     var el = document.getElementsByClassName('player-cards')[i];
@@ -84,7 +81,6 @@ $('#hit-button').click(function() {
 $('#stand-button').click(function() {
   while (dealerScore < 17) {
     var x = Math.floor(Math.random() * 52);
-    deck.splice(x, 1);
     dealerHand.push(deck[x]);
     for(var i=1; i<dealerHand.length; i++)
     var el = document.getElementsByClassName('dealer-cards')[i];
@@ -179,6 +175,7 @@ function dealerWins() {
 /*----------- Deck of Cards ---------*/
 
 var cardClasses = ['sA','hA','cA','dA','s02','h02','c02','d02','s03','h03','c03','d03','s04','h04','c04','d04','s05','h05','c05','d05','s06','h06','c06','d06','s07','h07','c07','d07','s08','h08','c08','d08','s09','h09','c09','d09','s10','h10','c10','d10','sJ','hJ','cJ','dJ','sQ','hQ','cQ','dQ','sQ','hK','cK','dK'];
+
 var suits = ['Spades', 'Hearts', 'Clubs', 'Diamonds'];
 var vals = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10];
 var deck = [];
@@ -198,7 +195,7 @@ for(var i = 0; i < vals.length; i++){
   }
 }
 
-$('#deal-again').click(function() {
+{$('#deal-again').click(function() {
   playerHand = [];
   dealerHand = [];
   $('.player-cards').attr('class', '').addClass('card player-cards back-blue');
@@ -210,3 +207,4 @@ $('#deal-again').click(function() {
   dealerScore = undefined;
   $('#counter').html(amountBet);
   });
+};
