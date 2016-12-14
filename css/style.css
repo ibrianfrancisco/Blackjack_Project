@@ -16,12 +16,15 @@ body {
 
 h1 {
   text-align: center;
+  font-size: 60px;
+  color: #FFF;
 }
 
-p {
+p, li {
   text-align: center;
-  font-size: 24px;
-  color: #FFEBCD;
+  font-size: 25px;
+  color: #FFF;
+  list-style: none;
 }
 
 header {

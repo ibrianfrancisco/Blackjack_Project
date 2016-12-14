@@ -25,8 +25,14 @@
     <div class="content">
       <h1>How To Play</h1>
       <p>The aim of the game is to accumulate a higher point total than the dealer, but without going over 21. The cards 2 through 10 have their face value, J, Q, and K are worth 10 points each, and the Ace is worth either 1 or 11 points (player's choice).</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui ab itaque quos ad inventore corporis dolorem porro deleniti nulla aspernatur labore unde ipsum vel, consectetur rerum dolor necessitatibus odit. Aliquam?</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia similique, in, perferendis saepe vel facilis harum quam eligendi laudantium velit laborum consectetur suscipit asperiores tempore. Odio dolorem, assumenda obcaecati accusantium!</p>
+      <p>Once the player bets, two cards will be dealt. Then the player can keep his hand as it is (stand) or take more cards from the deck (hit), one at a time, until either the player judges that the hand is strong enough to go up against the dealer's hand, or until it goes over 21, in which case the player immediately loses (busts).</p>
+      <p>Each hand will result in one of the following events for the player:
+      <ul>
+        <li>Blackjack (natural) - the player wins 1.5 times the bet. Betting $10 would win $25 total.</li>
+        <li>Push - the hand is a draw. The player keeps his bet, neither winning nor losing money.</li>
+        <li>Win - the player wins as much as he bet. If you bet $10, you win $20 total.</li>
+        <li>Lose - the player's bet is taken by the dealer.</li>
+      </ul>
       <div class="wrapper">
         <button class="play-button" id="lets-play">Let's Play</button>
       </div>
@@ -62,11 +68,11 @@
       <button class="game-buttons" id="deal-again">Play Again</button>
     </div>
     <div class="wrapper">
-      <button class="chips" id="bet5">10</button>
-      <button class="chips" id="bet10">20</button>
-      <button class="chips" id="bet20">50</button>
-      <button class="chips" id="bet50">100</button>
-      <button class="chips" id="bet100">500</button>
+      <button class="chips" id="bet10">10</button>
+      <button class="chips" id="bet20">20</button>
+      <button class="chips" id="bet50">50</button>
+      <button class="chips" id="bet100">100</button>
+      <button class="chips" id="bet500">500</button>
       <div id="counter">0</div>
       <button class="game-buttons" id="erase">Erase</button>
     </div>
