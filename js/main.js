@@ -35,7 +35,7 @@ $('#submit-bet').click(function() {
     return;
   }
   for(var i=0;i<2;i++) {
-    var x = Math.floor(Math.random() * 52);
+    var x = Math.floor(Math.random() * deck.length);
     playerHand.push(deck[x]);
     var el = document.getElementsByClassName('player-cards')[i];
     el.classList.remove('back-blue');
@@ -44,7 +44,7 @@ $('#submit-bet').click(function() {
     $('#player-value').html(playerScore);
   }
   for(var i=0; i<1;i++) {
-    var x = Math.floor(Math.random() * 52);
+    var x = Math.floor(Math.random() * deck.length);
     dealerHand.push(deck[x]);
     var el = document.getElementsByClassName('dealer-cards')[i];
     el.classList.remove('back-blue');
@@ -62,7 +62,7 @@ $('#submit-bet').click(function() {
 
 // HIT BUTTON: adding one card per click
 $('#hit-button').click(function() {
-  var x = Math.floor(Math.random() * 52);
+  var x = Math.floor(Math.random() * deck.length);
   playerHand.push(deck[x]);
   for (var i = 0; i < playerHand.length; i++)
     var el = document.getElementsByClassName('player-cards')[i];
@@ -80,7 +80,7 @@ $('#hit-button').click(function() {
 // STAND BUTTON: do everything
 $('#stand-button').click(function() {
   while (dealerScore < 17) {
-    var x = Math.floor(Math.random() * 52);
+    var x = Math.floor(Math.random() * deck.length);
     dealerHand.push(deck[x]);
     for(var i=1; i<dealerHand.length; i++)
     var el = document.getElementsByClassName('dealer-cards')[i];
