@@ -2,6 +2,7 @@ body {
   background-image: url(../images/Blackjack_Table.jpg);
   background-size: cover;
   user-select: none;
+  cursor: default;
 }
 
 .main-page, .game-page {
@@ -18,6 +19,8 @@ h1 {
   text-align: center;
   font-size: 60px;
   color: #FFF;
+  margin: 0;
+  text-shadow: 2px 2px #000;
 }
 
 p, li {
@@ -25,20 +28,23 @@ p, li {
   font-size: 25px;
   color: #FFF;
   list-style: none;
+  text-shadow: 1px 1px #000;
+
 }
 
 header {
   font-size: 162px;
   font-weight: bold;
-  margin: 60px;
+  margin: 60px 0 40px 0;
   padding: 0;
   text-align: center;
   cursor: default;
+  text-shadow: 6px 6px 10px #005555;
 }
 
 span {
   font-size: 24px;
-  margin: 0 0 0 20px;
+  margin: 0 10px 0 138px;
   color: #ffffff;
 }
 
@@ -54,7 +60,8 @@ div.wrapper {
 .display-values {
   text-align: center;
   color: #ffffff;
-  font-size: 24px;
+  font-size: 28px;
+  text-shadow: 2px 2px #000;
 }
 
 .game-buttons {
@@ -67,7 +74,7 @@ div.wrapper {
   display: inline-block;
 }
 
-#counter, #player-fund {
+.display-funds {
   background-color: rgba(100, 100, 100, 0.3);
   border: solid black 1px;
   outline: none;
@@ -75,7 +82,7 @@ div.wrapper {
   text-align: center;
   display: inline-block;
   padding: 20px;
-  width: 36px;
+  width: 4%;
   height: 21px;
   margin: 20px;
   color: white;
@@ -86,7 +93,7 @@ div.wrapper {
   border-radius: 20px;
   outline: none;
   font-size: 18px;
-  width: 8%;
+  width: 9%;
   margin: 20px;
 }
 

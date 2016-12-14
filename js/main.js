@@ -62,6 +62,9 @@ $('#submit-bet').click(function() {
 
 // HIT BUTTON: adding one card per click
 $('#hit-button').click(function() {
+  if (dealerScore === undefined) {
+    return;
+  }
   var x = Math.floor(Math.random() * deck.length);
   playerHand.push(deck[x]);
   for (var i = 0; i < playerHand.length; i++)
@@ -73,7 +76,8 @@ $('#hit-button').click(function() {
   if (playerScore > 21) {
     alert('Player Bust');
     playerFunds -= amountBet;
-    return $('#player-fund').html(playerFunds);
+    $('#player-fund').html(playerFunds);
+    return dealerScore = undefined;
   }
 });
 
@@ -100,7 +104,10 @@ $('#stand-button').click(function() {
   }
 });
 
-// BETTING CHIPS: updates amountBet.
+// BETTING CHIPS: updates amountBet. Do a delegation thing
+// if (dealerScore === undefined) {
+
+// }
 $('#bet10').click(function() {
   amountBet += 10;
   $('#counter').html(amountBet);
@@ -121,10 +128,15 @@ $('#bet500').click(function() {
   amountBet += 500;
   $('#counter').html(amountBet);
 });
-$('#erase').click(function() {
-  amountBet = 0;
+$('#bet-max').click(function() {
+  amountBet = playerFunds;
   $('#counter').html(amountBet);
 });
+// $('.chips').on('click', function() {
+//   amountBet += ;
+//   $('#counter').html(amountBet);
+// })
+
 
 /* ---------- Functions ---------- */
 function playerScoreTotal() {
@@ -159,17 +171,22 @@ function dealerScoreTotal() {
   return dealerScore;
 }
 
+function applyBet() {
+  $('#player-fund').html(playerFunds);
+  return dealerScore = undefined;
+}
+
 function playerWins() {
   alert('Player WINS');
   amountBet *= 2;
   playerFunds += amountBet;
-  return $('#player-fund').html(playerFunds);
+  applyBet();
 }
 
 function dealerWins() {
   alert('Dealer WINS');
   playerFunds -= amountBet;
-  return $('#player-fund').html(playerFunds);
+  applyBet();
 }
 
 /*----------- Deck of Cards ---------*/
@@ -195,7 +212,9 @@ for(var i = 0; i < vals.length; i++){
   }
 }
 
-{$('#deal-again').click(function() {
+
+// Turn this into a function where you click the bet button and it'll do all this and you can bet right away instead of having to click reset every single time
+$('#deal-again').click(function() {
   playerHand = [];
   dealerHand = [];
   $('.player-cards').attr('class', '').addClass('card player-cards back-blue');
@@ -206,5 +225,8 @@ for(var i = 0; i < vals.length; i++){
   playerScore = 0;
   dealerScore = undefined;
   $('#counter').html(amountBet);
-  });
-};
+  if (playerFunds === 0) {
+    playerFunds = 500;
+    $('#player-fund').html(playerFunds);
+  }
+});
