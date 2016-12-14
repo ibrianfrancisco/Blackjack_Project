@@ -9,6 +9,7 @@ $('#player-fund').html(playerFunds);
 $('#lets-play-button').click(function() {
   $('.main-page').fadeOut(800, function() {
     $('#game-page').fadeIn(800);
+    shuffle(deck);
   });
 });
 
@@ -23,6 +24,7 @@ $('#how-to-button').click(function() {
 $('#lets-play').click(function() {
   $('#how-to-play').fadeOut(800, function() {
     $('#game-page').fadeIn(800);
+    shuffle(deck);
   });
 });
 
@@ -172,7 +174,30 @@ function dealerWins() {
   return $('#player-fund').html(playerFunds);
 }
 
+function shuffle(deck) {
+  var m = deck.length, t, i;
+  // While there remain elements to shuffle…
+  while (m) {
+    // Pick a remaining element…
+    i = Math.floor(Math.random() * m--);
+    // And swap it with the current element.
+    t = deck[m];
+    deck[m] = deck[i];
+    deck[i] = t;
+  }
+  return deck;
+}
 /*----------- Deck of Cards ---------*/
+
+
+
+
+
+
+
+
+
+
 
 var cardClasses = ['sA','hA','cA','dA','s02','h02','c02','d02','s03','h03','c03','d03','s04','h04','c04','d04','s05','h05','c05','d05','s06','h06','c06','d06','s07','h07','c07','d07','s08','h08','c08','d08','s09','h09','c09','d09','s10','h10','c10','d10','sJ','hJ','cJ','dJ','sQ','hQ','cQ','dQ','sQ','hK','cK','dK'];
 
@@ -206,5 +231,6 @@ for(var i = 0; i < vals.length; i++){
   playerScore = 0;
   dealerScore = undefined;
   $('#counter').html(amountBet);
+  shuffle(deck);
   });
 };
