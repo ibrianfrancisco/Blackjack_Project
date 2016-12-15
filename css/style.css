@@ -87,6 +87,8 @@ div.wrapper {
   display: inline-block;
   outline: none;
   font-weight: bold;
+  background-color: rgb(0, 154, 0);
+  color: #ffffff
 }
 
 .chips {
@@ -97,7 +99,6 @@ div.wrapper {
   height: 80px;
   margin: 15px;
   outline: none;
-  border: none;
   font-weight: bold;
   border: dashed 4px #fff;
 }
@@ -108,6 +109,10 @@ div.wrapper {
   margin: 0 10px;
   font-size: 24px;
   outline: none;
+}
+
+.chips:active {
+  transform: translateY(2px);
 }
 
 #bet10 {
