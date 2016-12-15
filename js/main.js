@@ -16,6 +16,7 @@ $('#submit-bet').click(function() {
   if (playerScore > 0) {
     return;
   }
+  $('#message').html('');
   for(var i=0;i<2;i++) {
     var x = Math.floor(Math.random() * deck.length);
     playerHand.push(deck[x]);
@@ -29,7 +30,7 @@ $('#submit-bet').click(function() {
     var x = Math.floor(Math.random() * deck.length);
     dealerHand.push(deck[x]);
     var el = document.getElementsByClassName('dealer-cards')[i];
-    el.classList.remove('back-blue');
+    el.classList.remove('back-red');
     el.classList.add(cardClasses[x]);
     dealerScoreTotal();
     $('#dealer-value').html(dealerScore);
@@ -47,6 +48,7 @@ $('#hit-button').click(function() {
   if (dealerScore === undefined) {
     return;
   }
+  $('#player-card').append('<div class="card player-cards back-blue"></div>');
   var x = Math.floor(Math.random() * deck.length);
   playerHand.push(deck[x]);
   for (var i = 0; i < playerHand.length; i++)
@@ -68,11 +70,12 @@ $('#stand-button').click(function() {
     return;
   }
   while (dealerScore < 17) {
+    $('#dealer-card').append('<div class="card dealer-cards back-red"></div>');
     var x = Math.floor(Math.random() * deck.length);
     dealerHand.push(deck[x]);
     for(var i=1; i<dealerHand.length; i++)
     var el = document.getElementsByClassName('dealer-cards')[i];
-    el.classList.remove('back-blue');
+    el.classList.remove('back-red');
     el.classList.add(cardClasses[x]);
     dealerScoreTotal();
   }
@@ -85,6 +88,28 @@ $('#stand-button').click(function() {
     dealerWins();
   } else if (playerScore === dealerScore) {
     $('#message').html('PUSH')
+  }
+});
+
+$('#deal-again').click(function() {
+  $('#player-card').children().remove();
+  $('#dealer-card').children().remove();
+  $('#player-card').append('<div class="card player-cards back-blue"></div>');
+  $('#player-card').append('<div class="card player-cards back-blue"></div>');
+  $('#dealer-card').append('<div class="card player-cards back-red"></div>');
+  $('#dealer-card').append('<div class="card player-cards back-red"></div>');
+  playerHand = [];
+  dealerHand = [];
+  $('.player-cards').attr('class', '').addClass('card player-cards back-blue');
+  $('.dealer-cards').attr('class', '').addClass('card dealer-cards back-red');
+  $('.display-values').html('');
+  playerScore = 0;
+  dealerScore = undefined;
+  amountBet = 0;
+  $('#counter').html(amountBet);
+  if (playerFunds <= 0) {
+    playerFunds = 500;
+    $('#player-fund').html(playerFunds);
   }
 });
 
@@ -197,19 +222,3 @@ for(var i = 0; i < vals.length; i++){
     deck.push(card)
   }
 }
-
-$('#deal-again').click(function() {
-  playerHand = [];
-  dealerHand = [];
-  $('.player-cards').attr('class', '').addClass('card player-cards back-blue');
-  $('.dealer-cards').attr('class', '').addClass('card dealer-cards back-blue');
-  $('.display-values').html('');
-  playerScore = 0;
-  dealerScore = undefined;
-  amountBet = 0;
-  $('#counter').html(amountBet);
-  if (playerFunds <= 0) {
-    playerFunds = 500;
-    $('#player-fund').html(playerFunds);
-  }
-});

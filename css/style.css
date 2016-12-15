@@ -88,7 +88,7 @@ div.wrapper {
   outline: none;
   font-weight: bold;
   background-color: rgb(0, 154, 0);
-  color: #ffffff
+  color: #ffffff;
 }
 
 .chips {
@@ -109,6 +109,8 @@ div.wrapper {
   margin: 0 10px;
   font-size: 24px;
   outline: none;
+  background: rgb(0,154,0);
+  color: #000;
 }
 
 .chips:active {
