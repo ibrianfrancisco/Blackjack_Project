@@ -11,11 +11,12 @@
 
 <!-- Initial page -->
   <div class="main-page">
-    <div class="content">
+    <div>
       <header>BlackJack</header>
       <div class="wrapper">
         <button class="play-button" id="how-to-button">How To Play</button>
         <button class="play-button" id="lets-play-button">Let's Play</button>
+        <p>By: Brian Francisco</p>
       </div>
     </div>
   </div>
@@ -27,21 +28,21 @@
       <p>The aim of the game is to accumulate a higher point total than the dealer, but without going over 21. The cards 2 through 10 have their face value, J, Q, and K are worth 10 points each, and the Ace is worth either 1 or 11 points (player's choice).</p>
       <p>Once the player bets, two cards will be dealt. Then the player can keep his hand as it is (stand) or take more cards from the deck (hit), one at a time, until either the player judges that the hand is strong enough to go up against the dealer's hand, or until it goes over 21, in which case the player immediately loses (busts).</p>
       <p>Each hand will result in one of the following events for the player:
-      <ul>
+      <ol>
         <li>Blackjack (natural) - the player wins 1.5 times the bet. Betting $10 would win $25 total.</li>
         <li>Push - the hand is a draw. The player keeps his bet, neither winning nor losing money.</li>
         <li>Win - the player wins as much as he bet. If you bet $10, you win $20 total.</li>
         <li>Lose - the player's bet is taken by the dealer.</li>
-      </ul>
+      </ol>
+      </div>
       <div class="wrapper">
         <button class="play-button" id="lets-play">Let's Play</button>
-      </div>
     </div>
   </div>
 
 <!-- Game page -->
   <div class="game-page" id="game-page">
-    <div class="content">
+    <div>
       <div class="wrapper card-wrapper" id="dealer-card">
         <div class="card dealer-cards back-red"></div>
         <div class="card dealer-cards back-red"></div>
@@ -54,11 +55,11 @@
       </div>
       <div class="display-values" id="message"></div>
     </div>
-    <div class="wrapper">
+    <div class="wrapper move">
       <button class="game-buttons card-sound" id="hit-button">Hit</button>
       <button class="game-buttons card-sound" id="stand-button">Stand</button>
       <button class="game-buttons card-sound" id="submit-bet">Bet</button>
-      <button class="game-buttons" id="deal-again">Reshuffle</button>
+      <button class="game-buttons" id="deal-again">Reset</button>
       <span>Funds</span>
       <div class="display-funds" id="player-fund"></div>
     </div>
@@ -72,6 +73,11 @@
       <div class="display-funds" id="counter">0</div>
     </div>
   </div>
+
+<audio id="E1" preload="auto">
+<source src="http://www.sounddogs.com/previews/25/mp3/327118_SOUNDDOGS__ga.mp3"></source>
+This browser does not support the HTML5 audio tag.
+</audio>
 
   <script src="js/main.js"></script>
 </body>

@@ -2,7 +2,7 @@
 .card {
   box-sizing: border-box;
   display: inline-block;
-  margin: 20px 5px 20px 5px;
+  margin: 20px 7px;
   /* Set the card's dimensions, and size it relative to
      it's font size. */
   font-size: inherit;

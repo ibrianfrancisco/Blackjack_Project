@@ -1,11 +1,8 @@
 /* ---------- Variables ---------- */
 var playerFunds = 500;
 var amountBet = 0;
-var playerScore;
-// var player = new Audio('http://www.sounddogs.com/previews/25/mp3/327118_SOUNDDOGS__ga.mp3');
-// var cardPlayer = new Audio('https://www.sounddogs.com/previews/2721/mp3/464967_SOUNDDOGS__ca.mp3');
-// $('.chips').on('click', playSound);
-// $('.card-sound').on('click', cardSound)
+var playerScore = 0;
+var dealerScore;
 $('#player-fund').html(playerFunds);
 
 /* ---------- Event Listeners ---------- */
@@ -88,10 +85,14 @@ $('#stand-button').click(function() {
     dealerWins();
   } else if (playerScore === dealerScore) {
     $('#message').html('PUSH')
+    return dealerScore = undefined;
   }
 });
 
 $('#deal-again').click(function() {
+  if (dealerScore > 0) {
+    return;
+  }
   $('#player-card').children().remove();
   $('#dealer-card').children().remove();
   $('#player-card').append('<div class="card player-cards back-blue"></div>');
@@ -125,6 +126,11 @@ switchPages('#lets-play-button', '.main-page', '#game-page');
 switchPages('#how-to-button', '.main-page', '#how-to-play');
 switchPages('#lets-play', '#how-to-play', '#game-page');
 
+function cloneAndPlay(audioNode) {
+  var clone = audioNode.cloneNode(true);
+  clone.play();
+}
+
 function playerScoreTotal() {
   playerScore = 0;
   var aceCount = 0;
@@ -157,21 +163,18 @@ function dealerScoreTotal() {
   return dealerScore;
 }
 
-function applyBet() {
-  $('#player-fund').html(playerFunds);
-  return dealerScore = undefined;
-}
-
 function playerWins() {
   $('#message').html('Player Wins!')
   playerFunds += amountBet;
-  applyBet();
+  $('#player-fund').html(playerFunds);
+  return dealerScore = undefined;
 }
 
 function dealerWins() {
   $('#message').html('Dealer Wins!')
   playerFunds -= amountBet;
-  applyBet();
+  $('#player-fund').html(playerFunds);
+  return dealerScore = undefined;
 }
 
 function betChips(elem, amount) {
@@ -181,6 +184,7 @@ function betChips(elem, amount) {
     }
     amountBet += amount;
     $('#counter').html(amountBet);
+    cloneAndPlay(E1);
   })
 }
 betChips('#bet10', 10);
@@ -194,15 +198,8 @@ $('#bet-max').click(function() {
   }
   amountBet = playerFunds;
   $('#counter').html(amountBet);
+  cloneAndPlay(E1);
 });
-
-// function playSound() {
-//   player.play();
-// }
-
-// function cardSound() {
-//   cardPlayer.play();
-// }
 
 /*----------- Deck of Cards ---------*/
 
