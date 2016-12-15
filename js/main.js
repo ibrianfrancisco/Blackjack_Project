@@ -2,29 +2,23 @@
 var playerFunds = 500;
 var amountBet = 0;
 var playerScore;
+// var player = new Audio('http://www.sounddogs.com/previews/25/mp3/327118_SOUNDDOGS__ga.mp3');
+// var cardPlayer = new Audio('https://www.sounddogs.com/previews/2721/mp3/464967_SOUNDDOGS__ca.mp3');
+// $('.chips').on('click', playSound);
+// $('.card-sound').on('click', cardSound)
 $('#player-fund').html(playerFunds);
 
 /* ---------- Event Listeners ---------- */
-// fadeout Initial page and fadein my Game Page
-$('#lets-play-button').click(function() {
-  $('.main-page').fadeOut(800, function() {
-    $('#game-page').fadeIn(800);
+function switchPages(home, main, game) {
+  $(home).click(function() {
+    $(main).fadeOut(800, function() {
+      $(game).fadeIn(800);
+    });
   });
-});
-
-// fadeout Initial page and fadein How To Play
-$('#how-to-button').click(function() {
-  $('.main-page').fadeOut(800, function() {
-    $('#how-to-play').fadeIn(800);
-  });
-});
-
-// fadeout How To Play and fadein Game Page
-$('#lets-play').click(function() {
-  $('#how-to-play').fadeOut(800, function() {
-    $('#game-page').fadeIn(800);
-  });
-});
+}
+switchPages('#lets-play-button', '.main-page', '#game-page');
+switchPages('#how-to-button', '.main-page', '#how-to-play');
+switchPages('#lets-play', '#how-to-play', '#game-page');
 
 // BET BUTTON: initial draw 2 cards for playerHand.
 $('#submit-bet').click(function() {
@@ -53,11 +47,11 @@ $('#submit-bet').click(function() {
     $('#dealer-value').html(dealerScore);
   }
   if (playerScore === 21) {
-    $('#message').html('Player got BlackJack!')
+    $('#message').html('BlackJack!')
     amountBet *= 1.5;
     playerFunds += amountBet;
     $('#player-fund').html(playerFunds);
-    return dealerScore === undefined;
+    return dealerScore = undefined;
   }
 });
 
@@ -84,6 +78,9 @@ $('#hit-button').click(function() {
 
 // STAND BUTTON: do everything
 $('#stand-button').click(function() {
+  if ((playerScore === 21) && (dealerScore === undefined)) {
+    return;
+  }
   while (dealerScore < 17) {
     var x = Math.floor(Math.random() * deck.length);
     dealerHand.push(deck[x]);
@@ -106,18 +103,24 @@ $('#stand-button').click(function() {
 });
 
 // BETTING CHIPS: updates amountBet.
-function btnClick(elem, amount) {
+function betChips(elem, amount) {
   $(elem).click(function() {
+    if (playerScore > 0){
+      return;
+    }
     amountBet += amount;
     $('#counter').html(amountBet);
   })
 }
-btnClick('#bet10', 10);
-btnClick('#bet20', 20);
-btnClick('#bet50', 50);
-btnClick('#bet100', 100);
-btnClick('#bet500', 500);
+betChips('#bet10', 10);
+betChips('#bet20', 20);
+betChips('#bet50', 50);
+betChips('#bet100', 100);
+betChips('#bet500', 500);
 $('#bet-max').click(function() {
+  if (playerScore > 0){
+    return;
+  }
   amountBet = playerFunds;
   $('#counter').html(amountBet);
 });
@@ -174,6 +177,13 @@ function dealerWins() {
   applyBet();
 }
 
+// function playSound() {
+//   player.play();
+// }
+
+// function cardSound() {
+//   cardPlayer.play();
+// }
 
 /*----------- Deck of Cards ---------*/
 
@@ -201,12 +211,11 @@ $('#deal-again').click(function() {
   $('.player-cards').attr('class', '').addClass('card player-cards back-blue');
   $('.dealer-cards').attr('class', '').addClass('card dealer-cards back-blue');
   $('.display-values').html('');
-  $('#counter').html(0);
-  amountBet = 0;
   playerScore = 0;
   dealerScore = undefined;
+  amountBet = 0;
   $('#counter').html(amountBet);
-  if (playerFunds === 0) {
+  if (playerFunds <= 0) {
     playerFunds = 500;
     $('#player-fund').html(playerFunds);
   }

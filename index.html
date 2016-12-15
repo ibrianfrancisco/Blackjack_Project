@@ -42,7 +42,8 @@
 <!-- Game page -->
   <div class="game-page" id="game-page">
     <div class="content">
-      <div class="wrapper">
+      <div class="wrapper card-wrapper">
+        <div class="card dealer-cards back-blue"></div>
         <div class="card dealer-cards back-blue"></div>
         <div class="card dealer-cards back-blue"></div>
         <div class="card dealer-cards back-blue"></div>
@@ -51,7 +52,8 @@
       </div>
       <div class="display-values" id="dealer-value"></div>
       <div class="display-values" id="player-value"></div>
-      <div class="wrapper">
+      <div class="wrapper card-wrapper">
+        <div class="card player-cards back-blue"></div>
         <div class="card player-cards back-blue"></div>
         <div class="card player-cards back-blue"></div>
         <div class="card player-cards back-blue"></div>
@@ -61,9 +63,9 @@
       </div>
     </div>
     <div class="wrapper">
-      <button class="game-buttons" id="hit-button">Hit</button>
-      <button class="game-buttons" id="stand-button">Stand</button>
-      <button class="game-buttons" id="submit-bet">Bet</button>
+      <button class="game-buttons card-sound" id="hit-button">Hit</button>
+      <button class="game-buttons card-sound" id="stand-button">Stand</button>
+      <button class="game-buttons card-sound" id="submit-bet">Bet</button>
       <button class="game-buttons" id="deal-again">Reset</button>
       <span>Funds</span>
       <div class="display-funds" id="player-fund"></div>
@@ -74,7 +76,7 @@
       <button class="chips" id="bet50">50</button>
       <button class="chips" id="bet100">100</button>
       <button class="chips" id="bet500">500</button>
-      <button class="chips" id="bet-max">MAX</button>
+      <button class="chips" id="bet-max">Max</button>
       <div class="display-funds" id="counter">0</div>
     </div>
   </div>
