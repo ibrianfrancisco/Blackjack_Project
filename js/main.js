@@ -96,8 +96,8 @@ $('#deal-again').click(function() {
   $('#dealer-card').children().remove();
   $('#player-card').append('<div class="card player-cards back-blue"></div>');
   $('#player-card').append('<div class="card player-cards back-blue"></div>');
-  $('#dealer-card').append('<div class="card player-cards back-red"></div>');
-  $('#dealer-card').append('<div class="card player-cards back-red"></div>');
+  $('#dealer-card').append('<div class="card dealer-cards back-red"></div>');
+  $('#dealer-card').append('<div class="card dealer-cards back-red"></div>');
   playerHand = [];
   dealerHand = [];
   $('.player-cards').attr('class', '').addClass('card player-cards back-blue');
