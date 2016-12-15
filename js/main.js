@@ -9,18 +9,6 @@ var playerScore;
 $('#player-fund').html(playerFunds);
 
 /* ---------- Event Listeners ---------- */
-function switchPages(home, main, game) {
-  $(home).click(function() {
-    $(main).fadeOut(800, function() {
-      $(game).fadeIn(800);
-    });
-  });
-}
-switchPages('#lets-play-button', '.main-page', '#game-page');
-switchPages('#how-to-button', '.main-page', '#how-to-play');
-switchPages('#lets-play', '#how-to-play', '#game-page');
-
-// BET BUTTON: initial draw 2 cards for playerHand.
 $('#submit-bet').click(function() {
   if (amountBet > playerFunds || amountBet === 0) {
     return $('#message').html('Check Funds')
@@ -55,7 +43,6 @@ $('#submit-bet').click(function() {
   }
 });
 
-// HIT BUTTON: adding one card per click
 $('#hit-button').click(function() {
   if (dealerScore === undefined) {
     return;
@@ -76,7 +63,6 @@ $('#hit-button').click(function() {
   }
 });
 
-// STAND BUTTON: do everything
 $('#stand-button').click(function() {
   if ((playerScore === 21) && (dealerScore === undefined)) {
     return;
@@ -102,31 +88,18 @@ $('#stand-button').click(function() {
   }
 });
 
-// BETTING CHIPS: updates amountBet.
-function betChips(elem, amount) {
-  $(elem).click(function() {
-    if (playerScore > 0){
-      return;
-    }
-    amountBet += amount;
-    $('#counter').html(amountBet);
-  })
-}
-betChips('#bet10', 10);
-betChips('#bet20', 20);
-betChips('#bet50', 50);
-betChips('#bet100', 100);
-betChips('#bet500', 500);
-$('#bet-max').click(function() {
-  if (playerScore > 0){
-    return;
-  }
-  amountBet = playerFunds;
-  $('#counter').html(amountBet);
-});
-
-
 /* ---------- Functions ---------- */
+function switchPages(home, main, game) {
+  $(home).click(function() {
+    $(main).fadeOut(800, function() {
+      $(game).fadeIn(800);
+    });
+  });
+}
+switchPages('#lets-play-button', '.main-page', '#game-page');
+switchPages('#how-to-button', '.main-page', '#how-to-play');
+switchPages('#lets-play', '#how-to-play', '#game-page');
+
 function playerScoreTotal() {
   playerScore = 0;
   var aceCount = 0;
@@ -176,6 +149,28 @@ function dealerWins() {
   applyBet();
 }
 
+function betChips(elem, amount) {
+  $(elem).click(function() {
+    if (playerScore > 0){
+      return;
+    }
+    amountBet += amount;
+    $('#counter').html(amountBet);
+  })
+}
+betChips('#bet10', 10);
+betChips('#bet20', 20);
+betChips('#bet50', 50);
+betChips('#bet100', 100);
+betChips('#bet500', 500);
+$('#bet-max').click(function() {
+  if (playerScore > 0){
+    return;
+  }
+  amountBet = playerFunds;
+  $('#counter').html(amountBet);
+});
+
 // function playSound() {
 //   player.play();
 // }
@@ -203,7 +198,6 @@ for(var i = 0; i < vals.length; i++){
   }
 }
 
-// Turn this into a function where you click the bet button and it'll do all this and you can bet right away instead of having to click reset every single time
 $('#deal-again').click(function() {
   playerHand = [];
   dealerHand = [];
