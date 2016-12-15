@@ -166,7 +166,6 @@ function applyBet() {
 
 function playerWins() {
   $('#message').html('Player Wins!')
-  amountBet *= 2;
   playerFunds += amountBet;
   applyBet();
 }
