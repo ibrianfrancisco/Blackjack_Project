@@ -7,6 +7,7 @@ $('#player-fund').html(playerFunds);
 
 /* ---------- Event Listeners ---------- */
 $('#deal-card').click(function() {
+  makeDeck();
   shuffleDeck();
   if (amountBet > playerFunds || amountBet === 0) {
     return $('#message').html('Check Funds')
@@ -220,10 +221,14 @@ var Card = function(suit, val, classIdx) {
   this.val = val;
   this.name = cardClasses[classIdx];
 }
-for(var i = 0; i < vals.length; i++){
-  for(var j = 0; j < suits.length; j++){
-    var card = new Card(suits[j], vals[i], i*suits.length + j)
-    deck.push(card);
+function makeDeck() {
+  if (deck.length < 5) {
+    for(var i = 0; i < vals.length; i++){
+      for(var j = 0; j < suits.length; j++){
+        var card = new Card(suits[j], vals[i], i*suits.length + j)
+        deck.push(card);
+      }
+    }
   }
 }
 var shuffled = deck;

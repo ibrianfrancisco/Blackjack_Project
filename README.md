@@ -24,8 +24,6 @@ On the game page, you must start off by betting a number of chips to gamble. Sim
 ###Next Steps
 Things to implement in the future:
 
-
-  1. Fix Shuffling - current version of game does not reshuffle cards.
   2. Double down button - allows the player to double their bet after seeing their initial two cards. The catch is you can only Hit once.
   3. Split button - when a player is dealt two of the same card, you can split them into two new hands. You are then dealt two more cards and your bet is doubled. You then play each hand normally which gives you more chances to beat the dealer.
   4. Insurance button - if the dealers face-up card is an ace, the player is allowed to take insurance which counts as a side bet treated independantly from the main wager.
