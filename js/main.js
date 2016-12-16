@@ -221,14 +221,10 @@ var Card = function(suit, val, classIdx) {
   this.val = val;
   this.name = cardClasses[classIdx];
 }
-function makeDeck() {
-  if (deck.length < 5) {
-    for(var i = 0; i < vals.length; i++){
-      for(var j = 0; j < suits.length; j++){
-        var card = new Card(suits[j], vals[i], i*suits.length + j)
-        deck.push(card);
-      }
-    }
+for(var i = 0; i < vals.length; i++){
+  for(var j = 0; j < suits.length; j++){
+    var card = new Card(suits[j], vals[i], i*suits.length + j)
+    deck.push(card);
   }
 }
 var shuffled = deck;
