@@ -55,7 +55,7 @@ $('#hit-button').click(function() {
     el.classList.add(card.name);
     playerScoreTotal();
     $('#player-value').html(playerScore);
-  if (playerScore > 210) {
+  if (playerScore > 21) {
     $('#message').html('Bust!')
     playerFunds -= amountBet;
     $('#player-fund').html(playerFunds);
