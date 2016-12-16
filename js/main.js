@@ -54,7 +54,7 @@ $('#hit-button').click(function() {
     el.classList.add(card.name);
     playerScoreTotal();
     $('#player-value').html(playerScore);
-  if (playerScore > 21) {
+  if (playerScore > 210) {
     $('#message').html('Bust!')
     playerFunds -= amountBet;
     $('#player-fund').html(playerFunds);
@@ -220,10 +220,14 @@ var Card = function(suit, val, classIdx) {
   this.val = val;
   this.name = cardClasses[classIdx];
 }
-for(var i = 0; i < vals.length; i++){
-  for(var j = 0; j < suits.length; j++){
-    var card = new Card(suits[j], vals[i], i*suits.length + j)
-    deck.push(card);
+function makeDeck() {
+  if (deck.length < 20) {
+    for(var i = 0; i < vals.length; i++){
+      for(var j = 0; j < suits.length; j++){
+        var card = new Card(suits[j], vals[i], i*suits.length + j)
+        deck.push(card);
+      }
+    }
   }
 }
 var shuffled = deck;
