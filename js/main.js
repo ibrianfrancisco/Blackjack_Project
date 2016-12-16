@@ -222,7 +222,7 @@ var Card = function(suit, val, classIdx) {
   this.name = cardClasses[classIdx];
 }
 function makeDeck() {
-  if (deck.length < 10) {
+  if (deck.length < 20) {
     for(var i = 0; i < vals.length; i++){
       for(var j = 0; j < suits.length; j++){
         var card = new Card(suits[j], vals[i], i*suits.length + j)
