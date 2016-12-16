@@ -15,4 +15,19 @@ Then the player can keep their hand as it is (stand) or take more cards from the
 - JavaScipt
 - jQuery
 
-### Getting Started
+###Getting Started
+**Link to game:** https://ibrianfrancisco.github.io/Blackjack_Project/  
+Clicking on this link will take you to the BlackJack title screen. From there you have two options to choose from. If you are a beginner, you can read about How To Play. If you already know the rules, go straight into playing by clicking Let's Play.
+
+On the game page, you must start off by betting a number of chips to gamble. Simply click on the chip amount to add it to your bet total. Once ready, click "Deal" to deal out the cards. From there, you can either click "Hit" or "Stand". If you didn't bust, you'll then compare your total score with the dealer's score and a message will notify if you won or lost.
+
+###Next Steps
+Things to implement in the future:
+
+
+  1. Fix Shuffling - current version of game does not reshuffle cards.
+  2. Double down button - allows the player to double their bet after seeing their initial two cards. The catch is you can only Hit once.
+  3. Split button - when a player is dealt two of the same card, you can split them into two new hands. You are then dealt two more cards and your bet is doubled. You then play each hand normally which gives you more chances to beat the dealer.
+  4. Insurance button - if the dealers face-up card is an ace, the player is allowed to take insurance which counts as a side bet treated independantly from the main wager.
+  5. User friendly buttons - will allow the player to continue playing cards with minimal button pressing. 
+  6. Set a High Score Rank - will let the player know the max amount of money had in total in their time playing.
