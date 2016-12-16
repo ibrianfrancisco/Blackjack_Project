@@ -7,7 +7,6 @@ $('#player-fund').html(playerFunds);
 
 /* ---------- Event Listeners ---------- */
 $('#deal-card').click(function() {
-  makeDeck();
   shuffleDeck();
   if (amountBet > playerFunds || amountBet === 0) {
     return $('#message').html('Check Funds')
