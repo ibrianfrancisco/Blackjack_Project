@@ -25,7 +25,6 @@ $('#deal-card').click(function() {
     playerScoreTotal();
     $('#player-value').html(playerScore);
   }
-  // show dealer's up card
   dealerUpCard = document.getElementsByClassName('dealer-cards')[0];
   var card = deck.pop();
   dealerHand.push(card);
@@ -85,7 +84,7 @@ $('#stand-button').click(function() {
   } else if (playerScore < dealerScore) {
     dealerWins();
   } else if (playerScore === dealerScore) {
-    $('#message').html('PUSH')
+    $('#message').html('PUSH');
     return dealerScore = undefined;
   }
 });
@@ -224,7 +223,7 @@ var Card = function(suit, val, classIdx) {
 for(var i = 0; i < vals.length; i++){
   for(var j = 0; j < suits.length; j++){
     var card = new Card(suits[j], vals[i], i*suits.length + j)
-    deck.push(card)
+    deck.push(card);
   }
 }
 var shuffled = deck;
