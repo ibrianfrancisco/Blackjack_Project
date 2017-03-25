@@ -1,6 +1,11 @@
 body {
   background-image: url(../images/Blackjack_Table.jpg);
   background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  position: relative;
+  min-height: 700px;
+  overflow: hidden;
   user-select: none;
   cursor: default;
 }
