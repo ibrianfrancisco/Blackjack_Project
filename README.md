@@ -1,8 +1,7 @@
 # BlackJack
 
-----
 ### Description
->First project at General Assembly. Created the basic structure of the game with betting.
+First project at General Assembly. Created the basic structure of the game with betting.
 
 ![alt](http://i.imgur.com/wKrwj1V.jpg)
 
