@@ -3,10 +3,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
-  min-height: 700px;
-  overflow: hidden;
-  user-select: none;
-  cursor: default;
+  height: 100vh;
 }
 
 .main-page, .game-page {
