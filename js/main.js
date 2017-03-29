@@ -113,9 +113,9 @@ $('#deal-again').click(function() {
 });
 
 /* ---------- Functions ---------- */
-function replaceDeck() {
-
-}
+$(window).resize(function() {
+  $('js-fullheight').css('height', $(window).height());
+});
 
 function shuffleDeck() {
   deck = shuffled;
