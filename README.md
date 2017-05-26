@@ -19,6 +19,10 @@ On the game page, you must start off by betting a number of chips to gamble. Sim
 
 If you run out of funds, just click reset to start back at 500. See how far you can go!
 
+### Problems
+
+If I could change something, I'd also work on better UI so you don't have to press reset after every game
+
 ### Next Steps
 Things to implement in the future:
 
