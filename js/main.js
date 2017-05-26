@@ -97,8 +97,8 @@ function playerWins() {
   amountBet = 0;
   if (playerFunds > parseFloat(localStorage.items)) {
     localStorage.setItem('items', playerFunds)
+    score.textContent = playerFunds
   };
-  score.textContent = playerFunds
   return dealerScore = undefined;
 }
 
@@ -153,8 +153,8 @@ function dealButton() {
     document.querySelector('#counter').textContent = 0;
     if (playerFunds > parseFloat(localStorage.items)) {
       localStorage.setItem('items', playerFunds)
+      score.textContent = playerFunds
     };
-    score.textContent = playerFunds
     amountBet = 0;
     return dealerScore = undefined;
   }
