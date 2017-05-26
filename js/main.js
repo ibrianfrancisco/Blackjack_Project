@@ -154,6 +154,7 @@ function dealButton() {
     if (playerFunds > parseFloat(localStorage.items)) {
       localStorage.setItem('items', playerFunds)
     };
+    score.textContent = playerFunds
     amountBet = 0;
     return dealerScore = undefined;
   }
