@@ -9,8 +9,10 @@ let vals = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10];
 let deck = [];
 let playerHand = [];
 let dealerHand = [];
+let score = document.querySelector('.score-box');
 
 $('#player-fund').html(playerFunds);
+
 
 /* ---------- Functions ---------- */
 let Card = function(suit, val, classIdx) {
@@ -91,6 +93,8 @@ function playerWins() {
   $('#player-fund').html(playerFunds);
   document.querySelector('#counter').textContent = 0;
   amountBet = 0;
+  localStorage.setItem('items', playerFunds);
+  score.textContent = playerFunds
   return dealerScore = undefined;
 }
 
@@ -216,6 +220,7 @@ function resetButton() {
     $('#player-fund').html(playerFunds);
   }
 }
+
 
 /* ---------- Event Listeners ---------- */
 $('#deal-card').click(dealButton);

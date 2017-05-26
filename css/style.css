@@ -16,6 +16,20 @@ body {
   display: none;
 }
 
+.high-score {
+  color: white;
+}
+
+.score-box {
+  height: 70px;
+  width: 70px;
+  border: black 2px solid;
+}
+
+.entire {
+  float: right;
+}
+
 h1 {
   text-align: center;
   font-size: 60px;
