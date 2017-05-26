@@ -16,18 +16,17 @@ body {
   display: none;
 }
 
-.high-score {
-  color: white;
-}
-
 .score-box {
   height: 70px;
   width: 70px;
-  border: black 2px solid;
 }
 
-.entire {
-  float: right;
+.high-score {
+  color: white;
+  position: absolute;
+  left: 75%;
+  height: 60px;
+  font-size: 16px;
 }
 
 h1 {

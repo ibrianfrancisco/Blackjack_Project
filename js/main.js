@@ -12,7 +12,8 @@ let dealerHand = [];
 let score = document.querySelector('.score-box');
 
 $('#player-fund').html(playerFunds);
-localStorage.setItem('items', playerFunds);
+score.textContent = localStorage.getItem('items');
+
 
 
 /* ---------- Functions ---------- */
