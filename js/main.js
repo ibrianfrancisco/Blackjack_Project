@@ -95,7 +95,9 @@ function playerWins() {
   $('#player-fund').html(playerFunds);
   document.querySelector('#counter').textContent = 0;
   amountBet = 0;
-  localStorage.setItem('items', playerFunds);
+  if (playerFunds > parseFloat(localStorage.items)) {
+    localStorage.setItem('items', playerFunds)
+  };
   score.textContent = playerFunds
   return dealerScore = undefined;
 }
@@ -149,6 +151,9 @@ function dealButton() {
     playerFunds += amountBet;
     $('#player-fund').html(playerFunds);
     document.querySelector('#counter').textContent = 0;
+    if (playerFunds > parseFloat(localStorage.items)) {
+      localStorage.setItem('items', playerFunds)
+    };
     amountBet = 0;
     return dealerScore = undefined;
   }
