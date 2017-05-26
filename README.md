@@ -21,7 +21,7 @@ If you run out of funds, just click reset to start back at 500. See how far you 
 
 ### Problems
 
-If I could change something, I'd also work on better UI so you don't have to press reset after every game
+If I could change something, I'd work on creating better UI so you don't have to press reset after every game.
 
 ### Next Steps
 Things to implement in the future:
@@ -29,4 +29,4 @@ Things to implement in the future:
   - Double down button
   - Split button
   - Insurance button
-  - Set a High Score Rank
+  - Set a High Score Rank (done)
