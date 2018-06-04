@@ -1,3 +1,10 @@
+// jQuery(function(){
+//     jQuery.getScript("https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.0/moment.min.js", function() {
+//       console.log(moment.locale());
+//     });
+// });
+
+
 /* ---------- Variables ---------- */
 let playerFunds = 500;
 let amountBet = 0;
